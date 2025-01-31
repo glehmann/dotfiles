@@ -1,0 +1,99 @@
+theme = "tokyonight"
+# theme = "catppuccin_mocha"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+# line-number = "relative"
+popup-border = "all"
+rulers = [120]
+jump-label-alphabet = "auietsrnx.’qpdél"
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+# other-lines = "error"
+
+[editor.lsp]
+# display-inlay-hints = true
+display-messages = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.whitespace.characters]
+tab = "→"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+backspace = "delete_char_backward"
+W = "extend_next_word_start"
+B = "extend_prev_word_start"
+# don’t yank in d and c — just use yc or yd to yank
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+# map the jump key to something actually easy on bépo layout
+"’" = "goto_word"
+# remapping to . (dot) in currently broken - see https://github.com/helix-editor/helix/issues/1488
+# "." = "repeat_last_motion"
+# swap () and [] – [] are directly accessible on qwerty layout, while () are directly accessible on bépo
+"[" = "rotate_selections_backward"
+"]" = "rotate_selections_forward"
+"A-[" = "rotate_selection_contents_backward"
+"A-]" = "rotate_selection_contents_forward"
+# to shrink the selection if I’ve done too many x
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.normal.space]
+space = ":write-all"
+# "’" = ":sh zellij run --close-on-exit --floating -x 1% -y 5% --width 99% --height 96% -- bash ~/.config/helix/yazi-picker.sh"
+
+[keys.normal."("]
+space = "add_newline_above"
+D = "goto_first_diag"
+G = "goto_first_change"
+T = "goto_prev_test"
+a = "goto_prev_parameter"
+c = "goto_prev_comment"
+d = "goto_prev_diag"
+f = "goto_prev_function"
+g = "goto_prev_change"
+p = "goto_prev_paragraph"
+t = "goto_prev_class"
+j = "jump_backward" # not in the std mapping
+
+[keys.normal.")"]
+space = "add_newline_below"
+D = "goto_last_diag"
+G = "goto_last_change"
+T = "goto_next_test"
+a = "goto_next_parameter"
+c = "goto_next_comment"
+d = "goto_next_diag"
+f = "goto_next_function"
+g = "goto_next_change"
+p = "goto_next_paragraph"
+t = "goto_next_class"
+j = "jump_forward" # not in the std mapping
+
+[keys.select]
+# to shrink the selection if I’ve done too many x
+X = ["extend_line_up", "extend_to_line_bounds"]
+# don’t yank in d and c — just use yc or yd to yank
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+# flip anchor and curstor
+"," = "flip_selections"
