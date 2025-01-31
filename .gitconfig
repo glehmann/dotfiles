@@ -1,0 +1,77 @@
+[alias]
+	co = checkout
+	st = status -sb
+	prepush = !git log --graph --stat $(git rev-parse --abbrev-ref --symbolic-full-name @{u})..
+	ci = commit
+	# spush = svn dcommit
+	# spull = !git svn fetch && git svn rebase
+	slog = log --oneline --date-order --graph --all --decorate
+	amend = commit --amend --no-edit
+	up = pull --rebase --autostash --recurse-submodules
+	pnb = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+[color]
+	ui = auto
+[user]
+	name = Gaëtan Lehmann
+	email = gaetan.lehmann@gmail.com
+	signingkey = ~/.ssh/id_ed25519.pub
+[core]
+	precomposeunicode = true
+	quotepath = false
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+	# side-by-side = true
+    navigate = true    # use n and N to move between diff section
+	file-style="white"
+	line-numbers-left-style=#444444
+	line-numbers-right-style=#444444
+	hunk-header-decoration-style="#444444 box"
+	file-decoration-style="#444444 ol"
+	hunk-header-style=syntax
+	syntax-theme=Enki-Tokyo-Night
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[push]
+	default = simple
+# [diff]
+#   tool = p4merge
+# [merge]
+# 	tool = p4merge
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[svn]
+	rmdir = true
+[fetch]
+	prune = true
+[pager]
+#	log = diff-highlight | less
+#	show = diff-highlight | less
+#	diff = diff-highlight | less
+[pull]
+	ff = only
+[mergetool "p4merge"]
+	cmd = /home/glehmann/Applications/p4v-2015.2.1458499/bin/p4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[difftool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = cache
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
