@@ -1,0 +1,5 @@
+[registries.crates-io]
+protocol = "sparse"
+[alias]
+tq = "nextest run --status-level leak"
+t = "nextest run"
