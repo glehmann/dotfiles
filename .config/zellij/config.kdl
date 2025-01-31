@@ -1,0 +1,17 @@
+pane_frames false
+default_mode "locked"
+theme "catppuccin-mocha"
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
+keybinds {
+    shared {
+        bind "Alt N" { MoveFocusOrTab "Left"; }
+        bind "Alt n" { MoveFocusOrTab "Right"; }
+        // bind "Alt Shift Down" { MoveFocus "Down"; }
+        // bind "Alt Shift Up" { MoveFocus "Up"; }
+        bind "Alt t" { ToggleFloatingPanes; }
+    }
+}
