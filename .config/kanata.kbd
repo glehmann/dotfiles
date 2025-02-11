@@ -16,7 +16,7 @@
   esc    🔅    🔆    @mc   @sls  @dtn  @dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊 
   grv    1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab    q     w     e     r     t     y     u     i     o     p     [     ]
-  @caps  a     s     d     f     g     h     j     k     l     ;     '     \     ret
+  @caps  a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
   lsft < z     x     c     v     b     n     m     ,     .     /     rsft
   @fnl  lctl  lalt  @lmet             @nav              @ralt rmet  ◀    ▲ ▼    ▶
 )
@@ -50,6 +50,12 @@
   nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
+  s (tap-hold $tap-time $hold-time s lctl)
+  d (tap-hold $tap-time $hold-time d lmet)
+  f (tap-hold $tap-time $hold-time f lalt)
+  j (tap-hold $tap-time $hold-time j ralt)
+  k (tap-hold $tap-time $hold-time k rmet)
+  l (tap-hold $tap-time $hold-time l rctl)
 
   fnl (tap-hold 200 200 fn (layer-toggle fn))
   
