@@ -40,8 +40,8 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 250
+  hold-time 250
 )
 
 (defalias
@@ -57,7 +57,7 @@
   k (tap-hold $tap-time $hold-time k rmet)
   l (tap-hold $tap-time $hold-time l rctl)
 
-  fnl (tap-hold 200 200 fn (layer-toggle fn))
+  fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
   
   ;; macOS function key glyphs
   mc C-up ;; Mission Control
