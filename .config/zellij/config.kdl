@@ -1,6 +1,6 @@
 pane_frames false
 default_mode "locked"
-theme "catppuccin-mocha"
+theme "tokyo-night"
 ui {
     pane_frames {
         hide_session_name true
