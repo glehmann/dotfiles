@@ -13,7 +13,7 @@
 )
 
 (deflayer base
-  esc    🔅    🔆    @mc   @sls  @dtn  @dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊 
+  esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊 
   grv    1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab    q     w     e     r     t     y     u     i     o     p     [     ]
   @caps  a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
@@ -31,7 +31,7 @@
 )
 
 (deflayer nav
-  esc   🔅    🔆    @mc   @sls  @dtn  @dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊 
+  esc   🔅    🔆    mctl  sls   dtn   dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊 
   _     _     _     _     _     _     _     _     _     _     _     _     _     _
   _     kp/   kp7   kp8   kp9   kp-   _     ⤒     ▲     ⤓     _     _     _
   _     kp*   kp4   kp5   kp6   kp+   _     ◀     ▼     ▶     _     _     _     _
@@ -58,10 +58,4 @@
   l (tap-hold $tap-time $hold-time l rctl)
 
   fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
-  
-  ;; macOS function key glyphs
-  mc C-up ;; Mission Control
-  sls M-spc ;; Spotlight Search
-  dtn S-C-A-M-f5 ;; Dictation
-  dnd S-C-A-M-f6 ;; Do Not Disturb
 )
