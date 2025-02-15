@@ -8,10 +8,10 @@ ui {
 }
 keybinds {
     shared {
-        bind "Alt N" { MoveFocusOrTab "Left"; }
-        bind "Alt n" { MoveFocusOrTab "Right"; }
+        bind "Super t" { MoveFocusOrTab "Left"; }
+        bind "Super r" { MoveFocusOrTab "Right"; }
         // bind "Alt Shift Down" { MoveFocus "Down"; }
         // bind "Alt Shift Up" { MoveFocus "Up"; }
-        bind "Alt t" { ToggleFloatingPanes; }
+        bind "Super s" { ToggleFloatingPanes; }
     }
 }
