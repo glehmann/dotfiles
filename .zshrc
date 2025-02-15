@@ -32,7 +32,7 @@ bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
 
 setopt appendhistory
-setopt sharehistory
+# setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
