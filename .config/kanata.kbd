@@ -4,39 +4,39 @@
 )
 
 (defsrc
-  esc    f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
-  grv    1     2     3     4     5     6     7     8     9     0     -     =     bspc
-  tab    q     w     e     r     t     y     u     i     o     p     [     ]
-  caps   a     s     d     f     g     h     j     k     l     ;     '     \     ret
-  lsft < z     x     c     v     b     n     m     ,     .     /     rsft
-  fn     lctl  lalt  lmet              spc               rmet  ralt  ◀    ▲ ▼    ▶  
+  esc     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab     q     w     e     r     t     y     u     i     o     p     [     ]
+  caps    a     s     d     f     g     h     j     k     l     ;     '     \     ret
+  lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
+  fn      lctl  lalt  lmet              spc               rmet  ralt  ◀    ▲ ▼    ▶  
 )
 
 (deflayer base
-  esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  grv    1     2     3     4     5     6     7     8     9     0     -     =     bspc
-  tab    q     w     e     r     t     y     u     i     o     p     [     ]
-  @caps  a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
-  lsft < z     x     c     v     b     n     m     ,     .     /     rsft
-  @fnl  lctl  lalt  @lmet             @nav              @ralt rmet  ◀    ▲ ▼    ▶
+  esc     🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
+  grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab     q     w     e     r     t     y     u     i     o     p     [     ]
+  @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
+  @lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
+  @fnl   lctl  lalt  @lmet             @nav              @ralt rmet  ◀    ▲ ▼    ▶
 )
 
 (deflayer fn
-  _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
-  _     _     _     _     _     _     _     _     _     _     _     _     _     del
-  _     _     _     _     lrld  _     _     _     _     _     _     _     _
-  _     _     _     _     _     _     _     _     _     _     _     _     _     _
-  _   _ _     _     _     _     _     _     _     _     _     _     _
-  _     _     _     _                 _                 _     _     ⤒    ⇞ ⇟    ⤓
+  _      f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  _      _     _     _     _     _     _     _     _     _     _     _     _     del
+  _      _     _     _     lrld  _     _     _     _     _     _     _     _
+  _      _     _     _     _     _     _     _     _     _     _     _     _     _
+  _    _ _     _     _     _     _     _     _     _     _     _     _
+  _      _     _     _                 _                 _     _     ⤒    ⇞ ⇟    ⤓
 )
 
 (deflayer nav
-  esc   🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  _     _     _     _     _     _     _     _     _     _     _     _     _     _
-  _     kp/   kp7   kp8   kp9   kp-   _     ⤒     ▲     ⤓     _     _     _
-  _     kp*   kp4   kp5   kp6   kp+   ⇞     ◀     ▼     ▶     _     _     _     _
-  _   _ kp.   kp1   kp2   kp3   kp0   ⇟     _     _     _     _     _
-  _     _     _     _                 _                 _     _     _    _ _    _
+  esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
+  _      _     _     _     _     _     _     _     _     _     _     _     _     _
+  _      kp/   kp7   kp8   kp9   kp-   _     ⤒     ▲     ⤓     _     _     _
+  _      kp*   kp4   kp5   kp6   kp+   ⇞     ◀     ▼     ▶     _     _     _     _
+  _    _ kp.   kp1   kp2   kp3   kp0   ⇟     _     _     _     _     _
+  _      _     _     _                 _                 _     _     _    _ _    _
 )
 
 (defvar
@@ -47,6 +47,7 @@
 (defalias
   ;; tap for esc, hold for caps
   caps (tap-hold $tap-time $hold-time esc caps)
+  lsft (tap-hold $tap-time $hold-time esc lsft)
   nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
