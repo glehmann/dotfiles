@@ -17,8 +17,8 @@
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
-  @lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
-  @fnl   lctl  lalt  @lmet             @nav              @ralt  @ralt ◀    ▲ ▼    ▶
+  @lsft < z     x     c     @v    b     n     @m    ,     .     /     rsft
+  @fnl    lctl  lalt  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
 )
 
 (deflayer fn
@@ -60,8 +60,10 @@
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   s (t! charmod s lctl)
   d (t! charmod d lmet)
-  f (t! charmod f lalt)
+  f (t! charmod f ralt)
+  v (t! charmod v lalt)
   j (t! charmod j ralt)
+  m (t! charmod m lalt)
   k (t! charmod k rmet)
   l (t! charmod l rctl)
 
