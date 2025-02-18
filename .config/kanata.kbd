@@ -55,7 +55,7 @@
   ;; tap for esc, hold for caps
   caps (tap-hold $tap-time $hold-time esc caps)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
-  nav (tap-hold-press $tap-time $hold-time spc (layer-toggle nav))
+  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   s (t! charmod s lctl)
