@@ -44,19 +44,26 @@
   hold-time 250
 )
 
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than 450)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
 (defalias
   ;; tap for esc, hold for caps
   caps (tap-hold $tap-time $hold-time esc caps)
-  lsft (tap-hold $tap-time $hold-time esc lsft)
-  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+  lsft (tap-hold-press $tap-time $hold-time esc lsft)
+  nav (tap-hold-press $tap-time $hold-time spc (layer-toggle nav))
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
-  s (tap-hold $tap-time $hold-time s lctl)
-  d (tap-hold $tap-time $hold-time d lmet)
-  f (tap-hold $tap-time $hold-time f lalt)
-  j (tap-hold $tap-time $hold-time j ralt)
-  k (tap-hold $tap-time $hold-time k rmet)
-  l (tap-hold $tap-time $hold-time l rctl)
+  s (t! charmod s lctl)
+  d (t! charmod d lmet)
+  f (t! charmod f lalt)
+  j (t! charmod j ralt)
+  k (t! charmod k rmet)
+  l (t! charmod l rctl)
 
   fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
 )
