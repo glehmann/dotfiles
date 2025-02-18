@@ -18,7 +18,7 @@
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
   @lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
-  @fnl   lctl  lalt  @lmet             @nav              @ralt rmet  ◀    ▲ ▼    ▶
+  @fnl   lctl  lalt  @lmet             @nav              @ralt  @ralt ◀    ▲ ▼    ▶
 )
 
 (deflayer fn
