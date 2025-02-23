@@ -53,10 +53,10 @@
   hold-time 200
 )
 
-(deftemplate charmod (char mod)
+(deftemplate charmod (mod)
   (switch
-    ((key-timing 3 less-than 450)) $char break
-    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+    ((key-timing 3 less-than 450)) _ break
+    () (tap-hold-release-timeout 200 500 _ $mod _) break
   )
 )
 
@@ -64,14 +64,14 @@
   caps (tap-hold $tap-time $hold-time esc caps)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
-  LS (t! charmod _ lsft)
-  LM (t! charmod _ lmet)
-  LA (t! charmod _ lalt)
-  LC (t! charmod _ lctl)
-  C (t! charmod _ rctl)
-  A (t! charmod _ ralt)
-  M (t! charmod _ rmet)
-  S (t! charmod _ rsft)
+  LS (t! charmod lsft)
+  LM (t! charmod lmet)
+  LA (t! charmod lalt)
+  LC (t! charmod lctl)
+  C (t! charmod rctl)
+  A (t! charmod ralt)
+  M (t! charmod rmet)
+  S (t! charmod rsft)
 
   cut M-c
   cpy M-h
