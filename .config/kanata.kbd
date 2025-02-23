@@ -16,7 +16,7 @@
   esc     🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
-  @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
+  @caps   @LS   @LM   @LA   @LC   g     h     @C    @A    @M    @S    '     \     ret
   @lsft < z     x     c     v     b     n     m     ,     .     /     rsft
   @fnl    lctl  @num  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
 )
@@ -61,24 +61,27 @@
 )
 
 (defalias
+  caps (tap-hold $tap-time $hold-time esc caps)
+  lsft (tap-hold-press $tap-time $hold-time esc lsft)
+
+  LS (t! charmod _ lsft)
+  LM (t! charmod _ lmet)
+  LA (t! charmod _ lalt)
+  LC (t! charmod _ lctl)
+  C (t! charmod _ rctl)
+  A (t! charmod _ ralt)
+  M (t! charmod _ rmet)
+  S (t! charmod _ rsft)
+
   cut M-c
   cpy M-h
   pst M-u
-  ;; tap for esc, hold for caps
-  caps (tap-hold $tap-time $hold-time esc caps)
-  lsft (tap-hold-press $tap-time $hold-time esc lsft)
-  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+
+  fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
   num (layer-toggle num)
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   nmet (tap-hold-press $tap-time $hold-time del lmet)
+  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   rmet (tap-hold-press $tap-time $hold-time ret rmet)
-  s (t! charmod s lmet)
-  d (t! charmod d lalt)
-  f (t! charmod f lctl)
-  j (t! charmod j rctl)
-  k (t! charmod k ralt)
-  l (t! charmod l rmet)
-
-  fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
 )
