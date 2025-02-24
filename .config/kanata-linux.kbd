@@ -1,0 +1,57 @@
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold   yes
+)
+
+(defsrc
+  grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab     q     w     e     r     t     y     u     i     o     p     [     ]
+  caps    a     s     d     f     g     h     j     k     l     ;     '     \     ret
+  lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
+          lctl  lalt  lmet              spc               rmet  ralt  ◀    ▲ ▼    ▶  
+)
+
+(deflayer base
+  grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab     q     w     e     r     t     y     u     i     o     p     [     ]
+  @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
+  @lsft < z     x     c     @v    b     n     @m    ,     .     /     rsft
+          lctl  lalt  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
+)
+
+(deflayer nav
+  _      _     _     _     _     _     _     _     _     _     _     _     _     _
+  _      kp/   kp7   kp8   kp9   kp-   _     ⤒     ▲     ⤓     _     _     _
+  _      kp*   kp4   kp5   kp6   kp+   ⇞     ◀     ▼     ▶     _     _     _     _
+  _    _ kp.   kp1   kp2   kp3   kp0   ⇟     _     _     _     _     _
+        _     _     _                 _                 _     _     _    _ _    _
+)
+
+(defvar
+  tap-time 250
+  hold-time 250
+)
+
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than 450)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
+(defalias
+  ;; tap for esc, hold for caps
+  caps (tap-hold $tap-time $hold-time esc caps)
+  lsft (tap-hold-press $tap-time $hold-time esc lsft)
+  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+  lmet (tap-hold-press $tap-time $hold-time bspc lmet)
+  ralt (tap-hold-press $tap-time $hold-time ret ralt)
+  s (t! charmod s lctl)
+  d (t! charmod d lmet)
+  f (t! charmod f ralt)
+  v (t! charmod v lalt)
+  j (t! charmod j ralt)
+  m (t! charmod m lalt)
+  k (t! charmod k rmet)
+  l (t! charmod l rctl)
+)
