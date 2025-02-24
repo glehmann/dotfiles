@@ -75,3 +75,5 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[includeIf "gitdir:~/src/vates/**"]
+    path = ~/src/vates/.gitconfig
