@@ -32,7 +32,7 @@
 
 (deflayer nav
   esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  _      _     _     _     _     _     _     _     _     _     _     _     _     _
+  _      _     _     _     _     _     _     _     _     _     _     _     _     lrld
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
   _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
