@@ -14,44 +14,60 @@
 (deflayer base
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
-  @caps   a     @s    @d    @f    g     h     @j    @k    @l    ;     '     \     ret
-  @lsft < z     x     c     @v    b     n     @m    ,     .     /     rsft
-          lctl  lalt  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
+  @caps   @LS   @LA   @LM   @LC   g     h     @C    @M    @A    @S    '     \     ret
+  @lsft < z     x     c     v     b     n     m     ,     .     /     rsft
+          lctl  @num  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
 )
 
 (deflayer nav
   _      _     _     _     _     _     _     _     _     _     _     _     _     _
-  _      kp/   kp7   kp8   kp9   kp-   _     ⤒     ▲     ⤓     _     _     _
-  _      kp*   kp4   kp5   kp6   kp+   ⇞     ◀     ▼     ▶     _     _     _     _
-  _    _ kp.   kp1   kp2   kp3   kp0   ⇟     _     _     _     _     _
-        _     _     _                 _                 _     _     _    _ _    _
+  _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
+  lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
+  _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
+         _     _     @nmet       _                 _     _     _    _ _    _
+)
+
+(deflayer num
+  _      _     _     _     _     _     _     _     _     _     _     _     _     _
+  _      f1    f2    f3    f4     _     kp/   kp7   kp8   kp9   kp*   _     _
+  _      f5    f6    f7    f8     _     kp+   kp4   kp5   kp6   kp0   _     _     _
+  _    _ f9    f10   f11   f2     _     kp-   kp1   kp2   kp3   kp.   _
+         _     _     _                 _                 _     _     _    _ _    _
 )
 
 (defvar
-  tap-time 250
-  hold-time 250
+  tap-time 200
+  hold-time 200
 )
 
-(deftemplate charmod (char mod)
+(deftemplate charmod (mod)
   (switch
-    ((key-timing 3 less-than 450)) $char break
-    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+    ((key-timing 3 less-than 250)) _ break
+    () (tap-hold-release-timeout 200 500 _ $mod _) break
   )
 )
 
 (defalias
-  ;; tap for esc, hold for caps
   caps (tap-hold $tap-time $hold-time esc caps)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
-  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+
+  LS (t! charmod lsft)
+  LM (t! charmod lmet)
+  LA (t! charmod lalt)
+  LC (t! charmod lctl)
+  C (t! charmod rctl)
+  A (t! charmod ralt)
+  M (t! charmod rmet)
+  S (t! charmod rsft)
+
+  cut M-c
+  cpy M-h
+  pst M-u
+
+  num (layer-toggle num)
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
+  nmet (tap-hold-press $tap-time $hold-time del lmet)
+  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
-  s (t! charmod s lctl)
-  d (t! charmod d lmet)
-  f (t! charmod f ralt)
-  v (t! charmod v lalt)
-  j (t! charmod j ralt)
-  m (t! charmod m lalt)
-  k (t! charmod k rmet)
-  l (t! charmod l rctl)
+  rmet (tap-hold-press $tap-time $hold-time ret rmet)
 )
