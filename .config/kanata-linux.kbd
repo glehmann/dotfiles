@@ -60,9 +60,9 @@
   M (t! charmod rmet)
   S (t! charmod rsft)
 
-  cut M-c
-  cpy M-h
-  pst M-u
+  cut S-del
+  cpy C-ins
+  pst S-ins
 
   num (layer-toggle num)
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
