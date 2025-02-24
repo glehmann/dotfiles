@@ -46,6 +46,7 @@ B = "extend_prev_word_start"
 d = "delete_selection_noyank"
 c = "change_selection_noyank"
 # map the jump key to something actually easy on bépo layout
+"'" = "goto_word"
 "’" = "goto_word"
 # remapping to . (dot) in currently broken - see https://github.com/helix-editor/helix/issues/1488
 # "." = "repeat_last_motion"
