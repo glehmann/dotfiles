@@ -87,7 +87,7 @@ export PATH=$HOME/.local/bin:$PATH
 export EDITOR='hx'
 export LESS=' -RMX '
 export BAT_STYLE=plain
-export BAT_THEME=TwoDark
+export BAT_THEME=tokyonight_night
 
 # to force output colors in tree
 export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:da=90"

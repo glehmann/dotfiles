@@ -30,7 +30,7 @@
 	hunk-header-decoration-style="#444444 box"
 	file-decoration-style="#444444 ol"
 	hunk-header-style=syntax
-	syntax-theme=Enki-Tokyo-Night
+	syntax-theme=tokyonight_night
 [merge]
     conflictstyle = diff3
 [diff]
