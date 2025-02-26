@@ -31,6 +31,9 @@ bindkey '^[[6~' history-substring-search-down
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
 setopt appendhistory
 # setopt sharehistory
 setopt hist_ignore_space
