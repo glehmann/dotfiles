@@ -78,6 +78,7 @@ alias code=code-insiders
 alias ts=tree-sitter
 alias less=bat
 alias rb="~/src/vates/xcp-ng-build-env/run.py --rm"
+alias kb=~/src/vates/xcp/scripts/koji/koji_build.py
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=$HOME/.cargo/bin:$PATH
