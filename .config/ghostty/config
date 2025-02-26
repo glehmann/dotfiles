@@ -6,3 +6,6 @@ keybind = alt+right=unbind
 keybind = super+t=unbind
 keybind = super+d=unbind
 keybind = super+n=unbind
+
+keybind = shift+insert=paste_from_clipboard
+keybind = super+,=reload_config
