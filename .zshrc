@@ -59,7 +59,11 @@ alias grep='grep --color'
 # alias f="find . -name"
 alias f="fd -I"
 alias callgrind="valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes " #--dsymutil=yes
-alias dk=docker
+if which podman > /dev/null; then
+   alias dk=podman
+else
+   alias dk=docker
+fi
 alias dkc=docker compose
 # alias time="time -p"
 # alias pbcopy='xclip -selection clipboard'
