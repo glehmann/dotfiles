@@ -1,6 +1,7 @@
 (defcfg
   process-unmapped-keys yes
   concurrent-tap-hold   yes
+  log-layer-changes     no
 )
 
 (defsrc
