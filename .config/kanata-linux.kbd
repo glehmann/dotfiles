@@ -25,7 +25,7 @@
   _      _     ◀◀    ▶⏸    ▶▶    _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
   _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
-         _     _     @nmet       _                 _     _     _    _ _    _
+         _     @nnum @nmet       _                 _     _     _    _ _    _
 )
 
 (deflayer num
@@ -65,7 +65,8 @@
   cpy C-ins
   pst S-ins
 
-  num (layer-toggle num)
+  num (tap-hold-press $tap-time $hold-time bspc (layer-toggle num))
+  nnum (tap-hold-press $tap-time $hold-time del (layer-toggle num))
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   nmet (tap-hold-press $tap-time $hold-time del lmet)
   nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
