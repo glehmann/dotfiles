@@ -31,6 +31,7 @@
 	file-decoration-style="#444444 ol"
 	hunk-header-style=syntax
 	syntax-theme=tokyonight_night
+	dark=true
 [merge]
     conflictstyle = diff3
 [diff]
