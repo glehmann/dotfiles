@@ -5,6 +5,7 @@
 )
 
 (defsrc
+  esc
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   caps    a     s     d     f     g     h     j     k     l     ;     '     \     ret
@@ -13,6 +14,7 @@
 )
 
 (deflayer base
+  @esc
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   @caps   @LS   @LA   @LM   @LC   g     h     @C    @M    @A    @S    '     \     ret
@@ -21,6 +23,7 @@
 )
 
 (deflayer nav
+  _
   _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
@@ -29,6 +32,7 @@
 )
 
 (deflayer num
+  _
   _      _     _     _     _     _     _     _     _     _     _     _     _     _
   _      f1    f2    f3    f4     _     kp/   kp7   kp8   kp9   kp*  _     _
   _      f5    f6    f7    f8     _     kp+   kp4   kp5   kp6   kp0  _     _     _
@@ -49,6 +53,7 @@
 )
 
 (defalias
+  esc (tap-hold $tap-time $hold-time esc caps)
   caps (tap-hold $tap-time $hold-time esc lsft)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
