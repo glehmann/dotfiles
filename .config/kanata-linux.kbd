@@ -49,7 +49,7 @@
 )
 
 (defalias
-  caps (tap-hold $tap-time $hold-time esc caps)
+  caps (tap-hold $tap-time $hold-time esc lsft)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
   LS (t! charmod lsft)
