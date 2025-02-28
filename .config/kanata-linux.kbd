@@ -9,7 +9,7 @@
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   caps    a     s     d     f     g     h     j     k     l     ;     '     \     ret
   lsft  < z     x     c     v     b     n     m     ,     .     /     rsft
-          lctl  lalt  lmet              spc               rmet  ralt  ◀    ▲ ▼    ▶  
+          lctl  lmet  lalt              spc               rmet  ralt  ◀    ▲ ▼    ▶  
 )
 
 (deflayer base
@@ -17,15 +17,15 @@
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
   @caps   @LS   @LA   @LM   @LC   g     h     @C    @M    @A    @S    '     \     ret
   @lsft < z     x     c     v     b     n     m     ,     .     /     rsft
-          lctl  @num  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
+          lctl  lmet  @num              @nav              @ralt @ralt ◀    ▲ ▼    ▶
 )
 
 (deflayer nav
   _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
-  _      _     ◀◀    ▶⏸    ▶▶    _     ⇞     ⤒     ▲     ⤓     _     _     _
+  _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
-  _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
-         _     @nnum @nmet       _                 _     _     _    _ _    _
+  _    _ _     @cut  @cpy  @pst  _     _     ◀◀    ▶⏸    ▶▶    _     _
+         _     lmet  @nnum             _                 _     _     _    _ _    _
 )
 
 (deflayer num
@@ -67,8 +67,6 @@
 
   num (tap-hold-press $tap-time $hold-time bspc (layer-toggle num))
   nnum (tap-hold-press $tap-time $hold-time del (layer-toggle num))
-  lmet (tap-hold-press $tap-time $hold-time bspc lmet)
-  nmet (tap-hold-press $tap-time $hold-time del lmet)
   nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   rmet (tap-hold-press $tap-time $hold-time ret rmet)
