@@ -66,9 +66,11 @@ else
 fi
 alias dkc=docker compose
 # alias time="time -p"
-# alias pbcopy='xclip -selection clipboard'
-# alias pbpaste='xclip -selection clipboard -o'
-# alias open='xdg-open'
+if which xclip > /dev/null; then
+   alias pbcopy='xclip -selection clipboard'
+   alias pbpaste='xclip -selection clipboard -o'
+   alias open='xdg-open'
+fi
 alias tf=terraform
 alias kc=kubecolor
 # complete --command kc --wraps kubectl
