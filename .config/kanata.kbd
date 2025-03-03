@@ -54,25 +54,37 @@
   hold-time 200
 )
 
-(deftemplate charmod (mod)
+(deftemplate tap-mod-repeat (mod)
   (switch
-    ((key-timing 3 less-than 250)) _ break
+    ((key-timing 2 less-than 250)) _ break
     () (tap-hold-release-timeout 200 500 _ $mod _) break
   )
+)
+
+(deftemplate tap-mod (mod)
+  (switch
+    ((key-timing 2 less-than 250)) _ break
+    () (tap-hold-release 200 500 _ $mod) break
+  )
+)
+
+(defchordsv2
+  (s d f) lmet 200 first-release (nav num)
+  (j k l) ralt 200 first-release (nav num)
 )
 
 (defalias
   caps (tap-hold $tap-time $hold-time esc caps)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
-  LS (t! charmod lsft)
-  LM (t! charmod lmet)
-  LA (t! charmod lalt)
-  LC (t! charmod lctl)
-  C (t! charmod rctl)
-  A (t! charmod ralt)
-  M (t! charmod rmet)
-  S (t! charmod rsft)
+  LS (t! tap-mod-repeat lsft)
+  LM (t! tap-mod-repeat lmet)
+  LA (t! tap-mod-repeat lalt)
+  LC (t! tap-mod-repeat lctl)
+  C (t! tap-mod-repeat rctl)
+  A (t! tap-mod-repeat ralt)
+  M (t! tap-mod-repeat rmet)
+  S (t! tap-mod-repeat rsft)
 
   cut M-c
   cpy M-h
@@ -82,7 +94,7 @@
   num (layer-toggle num)
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   nmet (tap-hold-press $tap-time $hold-time del lmet)
-  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+  nav (t! tap-mod (layer-toggle nav))
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   rmet (tap-hold-press $tap-time $hold-time ret rmet)
 )
