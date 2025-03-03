@@ -33,7 +33,7 @@
 
 (deflayer nav
   esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  _      _     _     _     _     _     _     _     _     _     _     _     _     lrld
+  _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
   _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
@@ -74,7 +74,8 @@
 )
 
 (defalias
-  caps (tap-hold $tap-time $hold-time esc caps)
+  esc (tap-hold $tap-time $hold-time esc caps)
+  caps (tap-hold $tap-time $hold-time esc lsft)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
   LS (t! tap-mod-repeat lsft)
