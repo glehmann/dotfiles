@@ -61,10 +61,11 @@ alias f="fd -I"
 alias callgrind="valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes " #--dsymutil=yes
 if which podman > /dev/null; then
    alias dk=podman
+   alias dkc=podman compose
 else
    alias dk=docker
+   alias dkc=docker compose
 fi
-alias dkc=docker compose
 # alias time="time -p"
 if which xclip > /dev/null; then
    alias pbcopy='xclip -selection clipboard'
