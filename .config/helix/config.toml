@@ -57,6 +57,8 @@ c = "change_selection_noyank"
 "A-]" = "rotate_selection_contents_forward"
 # to shrink the selection if I’ve done too many x
 X = ["extend_line_up", "extend_to_line_bounds"]
+"pageup" = "half_page_up"
+"pagedown" = "half_page_down"
 
 [keys.normal.space]
 space = ":write-all"
