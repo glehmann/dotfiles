@@ -17,7 +17,7 @@
   esc     🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab     q     w     e     r     t     y     u     i     o     p     [     ]
-  @caps   @LS   @LA   @LM   @LC   g     h     @C    @M    @A    @S    '     \     ret
+  @caps   a     @LA   @LM   @LC   g     h     @C    @M    @A    ;     '     \     ret
   @lsft < z     x     c     v     b     n     m     ,     .     /     rsft
   @fnl    lctl  @num  @lmet             @nav              @ralt @ralt ◀    ▲ ▼    ▶
 )
@@ -35,17 +35,17 @@
   esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
-  lsft   lsft  lmet  lalt  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
-  _    _ _     @cut  @cpy  @pst  _     bspc  del   _     _     _     _
+  lsft   lsft  lalt  lmet  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
+  _    _ _     @cut  @cpy  @pst  _     _     ◀◀    ▶⏸    ▶▶    _     _
   _      _     _     @nmet       _                 _     _     _    _ _    _
 )
 
 (deflayer num
   esc    🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   _      _     _     _     _     _     _     _     _     _     _     _     _     _
-  _      f1    f2    f3    f4     _     kp/   kp7   kp8   kp9   kp*   _     _
-  _      f5    f6    f7    f8     _     kp+   kp4   kp5   kp6   kp0   _     _     _
-  _    _ f9    f10   f11   f2     _     kp-   kp1   kp2   kp3   kp.   _
+  _      f1    f2    f3    f4    _     kp/   kp7   kp8   kp9   kp*   _     _
+  _      f5    f6    f7    f8    _     kp+   kp4   kp5   kp6   kp0   _     _     _
+  _    _ f9    f10   f11   f2    _     kp-   kp1   kp2   kp3   kp.   _
   _      _     _     _                 _                 _     _     _    _ _    _
 )
 
@@ -54,23 +54,11 @@
   hold-time 200
 )
 
-(deftemplate tap-mod-repeat (mod)
+(deftemplate fast-tap-mod (mod)
   (switch
-    ((key-timing 2 less-than 250)) _ break
-    () (tap-hold-release-timeout 200 500 _ $mod _) break
+    ((key-timing 2 less-than 350)) _ break
+    () (tap-hold $tap-time $hold-time _ $mod) break
   )
-)
-
-(deftemplate tap-mod (mod)
-  (switch
-    ((key-timing 2 less-than 250)) _ break
-    () (tap-hold-release 200 500 _ $mod) break
-  )
-)
-
-(defchordsv2
-  (s d f) lmet 200 first-release (nav num)
-  (j k l) ralt 200 first-release (nav num)
 )
 
 (defalias
@@ -78,14 +66,12 @@
   caps (tap-hold $tap-time $hold-time esc lsft)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
-  LS (t! tap-mod-repeat lsft)
-  LM (t! tap-mod-repeat lmet)
-  LA (t! tap-mod-repeat lalt)
-  LC (t! tap-mod-repeat lctl)
-  C (t! tap-mod-repeat rctl)
-  A (t! tap-mod-repeat ralt)
-  M (t! tap-mod-repeat rmet)
-  S (t! tap-mod-repeat rsft)
+  LM (t! fast-tap-mod lmet)
+  LA (t! fast-tap-mod lalt)
+  LC (t! fast-tap-mod lctl)
+  C (t! fast-tap-mod rctl)
+  A (t! fast-tap-mod ralt)
+  M (t! fast-tap-mod rmet)
 
   cut M-c
   cpy M-h
@@ -95,7 +81,10 @@
   num (layer-toggle num)
   lmet (tap-hold-press $tap-time $hold-time bspc lmet)
   nmet (tap-hold-press $tap-time $hold-time del lmet)
-  nav (t! tap-mod (layer-toggle nav))
+  nav (switch
+    ((key-timing 2 less-than 350)) _ break
+    () (tap-hold-release $tap-time $hold-time _ (layer-toggle nav)) break
+  )
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   rmet (tap-hold-press $tap-time $hold-time ret rmet)
 )
