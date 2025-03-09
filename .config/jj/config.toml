@@ -1,0 +1,47 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Gaëtan Lehmann"
+email = "gaetan.lehmann@gmail.com"
+
+[ui]
+default-command = ["log", "-T", "zen"]
+
+[templates]
+log = "builtin_log_compact_full_description"
+
+[aliases]
+clone = ["git", "clone", "--colocate"]
+fetch = ["git", "fetch"]
+push = ["git", "push"]
+
+[revset-aliases]
+branch = "trunk()::@"
+br = "branch"
+
+[template-aliases]
+detailed = "builtin_log_detailed"
+zen = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      separate(" ",
+        format_short_change_id_with_hidden_and_divergent_info(self),
+        commit_timestamp(self).ago(),
+        bookmarks,
+        tags,
+        working_copies,
+        if(conflict, label("conflict", "conflict")),
+        if(config("ui.show-cryptographic-signatures").as_boolean(),
+          format_short_cryptographic_signature(signature)),
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+    ),
+  )
+)
+'''
