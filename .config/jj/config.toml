@@ -45,3 +45,9 @@ if(root,
   )
 )
 '''
+
+# override user.email if the repository is located under ~/src/vates
+[[--scope]]
+--when.repositories = ["~/src/vates"]
+[--scope.user]
+email = "gaetan.lehmann@vates.tech"
