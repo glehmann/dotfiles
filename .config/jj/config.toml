@@ -7,17 +7,31 @@ email = "gaetan.lehmann@gmail.com"
 [ui]
 default-command = ["log", "-T", "zen"]
 
+[experimental-advance-branches]
+enabled-branches = ["glob:*"]
+
 [templates]
 log = "builtin_log_compact_full_description"
 
 [aliases]
+annotate = ["file", "annotate"]
+ci = ["commit"]
 clone = ["git", "clone", "--colocate"]
-fetch = ["git", "fetch"]
+init = ["git", "init", "--colocate"]
 push = ["git", "push"]
+# tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+up = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+bookmark=`jj log -r 'closest_bookmark(@) & tracked_remote_bookmarks()' -T bookmarks --no-graph`
+jj git fetch
+jj rebase -d $bookmark
+""", ""]
 
 [revset-aliases]
 branch = "trunk()::@"
 br = "branch"
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 
 [template-aliases]
 detailed = "builtin_log_detailed"
