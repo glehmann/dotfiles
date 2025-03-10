@@ -52,8 +52,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 source <(carapace _carapace)
 
 alias ls=eza
-alias ll='eza -l'
-alias lla='eza -la'
+alias ll='eza -lg'
+alias lla='eza -lag'
 alias grep='grep --color'
 # alias ldd='otool -L'
 # alias f="find . -name"
@@ -93,7 +93,7 @@ export BAT_STYLE=plain
 export BAT_THEME=tokyonight_night
 
 # to force output colors in tree
-export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:da=90"
+export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
 export LS_COLORS="$(vivid generate tokyonight-moon)"
 
 # configuration for helix from src dir
