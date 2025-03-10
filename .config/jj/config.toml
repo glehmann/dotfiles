@@ -7,9 +7,6 @@ email = "gaetan.lehmann@gmail.com"
 [ui]
 default-command = ["log", "-T", "zen"]
 
-[experimental-advance-branches]
-enabled-branches = ["glob:*"]
-
 [templates]
 log = "builtin_log_compact_full_description"
 
@@ -19,7 +16,7 @@ ci = ["commit"]
 clone = ["git", "clone", "--colocate"]
 init = ["git", "init", "--colocate"]
 push = ["git", "push"]
-# tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
 up = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
