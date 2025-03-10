@@ -10,6 +10,11 @@ default-command = ["log", "-T", "zen"]
 [templates]
 log = "builtin_log_compact_full_description"
 
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+
 [aliases]
 annotate = ["file", "annotate"]
 ci = ["commit"]
