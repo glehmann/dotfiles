@@ -8,7 +8,7 @@ cursorline = true
 # line-number = "relative"
 popup-border = "all"
 rulers = [120]
-jump-label-alphabet = "auietsrnx.’qpdél"
+jump-label-alphabet = "auietsrnx.'qpdél"
 end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
