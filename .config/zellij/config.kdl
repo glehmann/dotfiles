@@ -4,8 +4,8 @@ keybinds clear-defaults=true {
         bind "Super t" { MoveFocusOrTab "Left"; }
         bind "Super r" { MoveFocusOrTab "Right"; }
         bind "Super s" { ToggleFloatingPanes; }
-        bind "Super n" { NewTab; }
-        bind "Super d" { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "Super d" { NewTab; }
+        bind "Super '" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "Super Alt +" { Resize "Increase"; }
         bind "Super Alt -" { Resize "Decrease"; }
     }
