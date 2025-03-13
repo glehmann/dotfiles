@@ -37,6 +37,9 @@ if status is-interactive
     set -x PATH $HOME/.cargo/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
 
+    set -x N_PREFIX $HOME/n
+    set -x PATH $N_PREFIX/bin $PATH
+
     set -x EDITOR 'hx'
     set -x LESS ' -RMX '
     set -x BAT_STYLE plain
