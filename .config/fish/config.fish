@@ -41,6 +41,8 @@ if status is-interactive
     set -x LESS ' -RMX '
     set -x BAT_STYLE plain
     set -x BAT_THEME tokyonight_night
+    # most applications don't yet know about ghostty
+    set -x TERM xterm-256color
 
     # to force output colors in tree
     set -x EZA_COLORS "ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
