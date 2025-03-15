@@ -10,6 +10,7 @@ popup-border = "all"
 rulers = [120]
 jump-label-alphabet = "auietsrnx.'qpdél"
 end-of-line-diagnostics = "hint"
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
