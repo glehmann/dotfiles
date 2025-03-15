@@ -59,6 +59,8 @@ c = "change_selection_noyank"
 X = ["extend_line_up", "extend_to_line_bounds"]
 "pageup" = "half_page_up"
 "pagedown" = "half_page_down"
+# flip anchor and curstor
+"," = "flip_selections"
 
 [keys.normal.space]
 space = ":write-all"
