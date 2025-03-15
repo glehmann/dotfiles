@@ -27,7 +27,7 @@
   _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lalt  lmet  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
-  _    _ _     @cut  @cpy  @pst  _     _     ◀◀    ▶⏸    ▶▶    _     _
+  _    _ _     @cut  @cpy  @pst  _     bspc  ◀◀    ▶⏸    ▶▶    _     _
          _     lmet  @nnum             _                 _     _     _    _ _    _
 )
 
