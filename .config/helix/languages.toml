@@ -1,0 +1,51 @@
+[[language]]
+name = "python"
+language-servers = [
+  "basedpyright",
+  "ruff",
+]
+auto-format = true
+
+[language-server.basedpyright]
+environment = {"LANG" = "en"}
+
+[language-server.basedpyright.config.basedpyright.analysis]
+typeCheckingMode = "standard"
+
+[language-server.taplo.config]
+# Workaround for nonsense of being nonfunctional outside git directories
+# (https://github.com/helix-editor/helix/issues/3897#issuecomment-2361674437)
+root_dir = [".git", "*.toml"]
+
+# kanata
+[[grammar]]
+name = "kanata"
+# source = { path= "/home/glehmann/src/tree-sitter-kanata" }
+source = { git = "https://github.com/glehmann/tree-sitter-kanata.git", rev = "e3f368ded70efbaeba0273390b1bbfb6c4a94c22" }
+
+[[language]]
+name = "kanata"
+scope = "source.kanata"
+file-types = ["kbd"]
+shebangs = ["kanata"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+grammar = "kanata"
+
+# specfile
+[[grammar]]
+name = "rpmspec"
+source = { git = "https://gitlab.com/cryptomilk/tree-sitter-rpmspec.git", rev = "a7b1cff462c2069b005a41848f462d79d67c738f" }
+
+[language-server.rpm-spec-language-server]
+command = "python"
+args = ["-m", "rpm_spec_language_server", "--stdio"]
+
+[[language]]
+name = "rpmspec"
+scope = "source.rpmspec"
+file-types = ["spec"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+grammar = "rpmspec"
+language-servers = [ "rpm-spec-language-server" ]
