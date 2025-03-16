@@ -65,6 +65,7 @@ X = ["extend_line_up", "extend_to_line_bounds"]
 
 [keys.normal.space]
 space = ":write-all"
+"l" = ":lsp-workspace-command"
 # "’" = ":sh zellij run --close-on-exit --floating -x 1% -y 5% --width 99% --height 96% -- bash ~/.config/helix/yazi-picker.sh"
 
 [keys.normal."("]
