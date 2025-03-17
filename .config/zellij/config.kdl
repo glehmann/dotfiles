@@ -6,8 +6,6 @@ keybinds clear-defaults=true {
         bind "Super s" { ToggleFloatingPanes; }
         bind "Super d" { NewTab; }
         bind "Super '" { SwitchToMode "renametab"; TabNameInput 0; }
-        bind "Super Alt +" { Resize "Increase"; }
-        bind "Super Alt -" { Resize "Decrease"; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -136,23 +134,18 @@ keybinds clear-defaults=true {
         }
     }
     shared_among "normal" "locked" {
-        // bind "Alt left" { MoveFocusOrTab "left"; }
-        // bind "Alt down" { MoveFocus "down"; }
-        // bind "Alt up" { MoveFocus "up"; }
-        // bind "Alt right" { MoveFocusOrTab "right"; }
-        bind "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
-        bind "Alt =" { Resize "Increase"; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
+        bind "Super Alt t" { MoveFocusOrTab "left"; }
+        bind "Super Alt s" { MoveFocus "down"; }
+        bind "Super Alt d" { MoveFocus "up"; }
+        bind "Super Alt r" { MoveFocusOrTab "right"; }
+        bind "Super Alt +" { Resize "Increase"; }
+        bind "Super Alt -" { Resize "Decrease"; }
+        bind "Super Alt (" { PreviousSwapLayout; }
+        bind "Super Alt )" { NextSwapLayout; }
+        bind "Super Alt f" { ToggleFloatingPanes; }
+        bind "Super Alt v" { MoveTab "left"; }
+        bind "Super Alt l" { MoveTab "right"; }
+        bind "Super Alt n" { NewPane; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
