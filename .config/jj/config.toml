@@ -39,7 +39,11 @@ br = "branch"
 detailed = "builtin_log_detailed"
 zen = '''
 if(root,
-  format_root_commit(self),
+separate(" ",
+  format_short_change_id(self.change_id()),
+    label("root", "root()"),
+    self.bookmarks(),
+  ) ++ "\n",
   label(if(current_working_copy, "working_copy"),
     concat(
       separate(" ",
