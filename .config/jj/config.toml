@@ -7,6 +7,11 @@ email = "gaetan.lehmann@gmail.com"
 [ui]
 default-command = ["log", "-T", "zen"]
 
+[colors]
+"diff token" = { underline = false }
+"diff removed token" = { bg = "#221313" }
+"diff added token" = { bg = "#222922" }
+
 [templates]
 log = "builtin_log_compact_full_description"
 
