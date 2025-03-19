@@ -49,3 +49,6 @@ comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 grammar = "rpmspec"
 language-servers = [ "rpm-spec-language-server" ]
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
