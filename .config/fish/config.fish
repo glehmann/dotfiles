@@ -17,10 +17,15 @@ if status is-interactive
        alias dkc=docker compose
     end
     # # alias time="time -p"
-    if which xclip > /dev/null
+    if which xdg-open > /dev/null
+       alias open='xdg-open'
+    end
+    if which kitten > /dev/null
+       alias pbcopy='kitten clipboard'
+       alias pbpaste='kitten clipboard --get-clipboard'
+    else if which xclip > /dev/null
        alias pbcopy='xclip -selection clipboard'
        alias pbpaste='xclip -selection clipboard -o'
-       alias open='xdg-open'
     end
     alias tf=terraform
     alias kc=kubecolor
