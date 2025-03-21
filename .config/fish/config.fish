@@ -66,7 +66,7 @@ if status is-interactive
         source $HOME/.secrets.sh
     end
     
-    carapace _carapace | source
+    carapace _carapace | grep -v "'jj'" | source
     starship init fish | source
     zoxide init --cmd cd fish | source
 end
