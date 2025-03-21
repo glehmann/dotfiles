@@ -27,7 +27,7 @@
   _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
   _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lalt  lmet  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
-  _    _ _     @cut  @cpy  @pst  _     bspc  ◀◀    ▶⏸    ▶▶    _     _
+  _    _ _     @cut  @cpy  @pst  @spst bspc  ◀◀    ▶⏸    ▶▶    _     _
          _     lmet  @nnum             _                 _     _     _    _ _    _
 )
 
@@ -67,6 +67,7 @@
   cut S-del
   cpy C-ins
   pst S-ins
+  spst C-S-ins
 
   num (tap-hold-press $tap-time $hold-time bspc (layer-toggle num))
   nnum (tap-hold-press $tap-time $hold-time del (layer-toggle num))
