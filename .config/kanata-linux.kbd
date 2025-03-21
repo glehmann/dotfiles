@@ -41,13 +41,13 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 250
+  hold-time 250
 )
 
 (deftemplate fast-tap-mod (mod)
   (switch
-    ((key-timing 2 less-than 350)) _ break
+    ((key-timing 2 less-than 300)) _ break
     () (tap-hold $tap-time $hold-time _ $mod) break
   )
 )
