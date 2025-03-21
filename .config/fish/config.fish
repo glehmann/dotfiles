@@ -37,6 +37,7 @@ if status is-interactive
     alias less=bat
     alias rb="~/src/vates/xcp-ng-build-env/run.py --rm"
     alias kb=~/src/vates/xcp/scripts/koji/koji_build.py
+    alias ssh="env TERM=xterm-256color ssh"
 
     set -x XDG_CONFIG_HOME "$HOME/.config"
     set -x PATH $HOME/.cargo/bin $PATH
