@@ -4,6 +4,10 @@
   log-layer-changes     no
 )
 
+(defvirtualkeys
+  vmet lmet
+)
+
 (defsrc
   esc
   grv     1     2     3     4     5     6     7     8     9     0     -     =     bspc
@@ -24,8 +28,8 @@
 
 (deflayer nav
   _
-  _      _     _     _     _     _     _     _     _     _     _     _     lrld  _
-  _      _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
+  @grv   _     _     _     _     _     _     _     _     _     _     _     lrld  _
+  @tab   _     _     _     _     _     ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lalt  lmet  lctl  _     ⇟     ◀     ▼     ▶     _     _     _     _
   _    _ _     @cut  @cpy  @pst  @spst bspc  ◀◀    ▶⏸    ▶▶    _     _
          _     lmet  @nnum             _                 _     _     _    _ _    _
@@ -43,17 +47,20 @@
 (defvar
   tap-time 250
   hold-time 250
+  inactive-time 300
 )
 
 (deftemplate fast-tap-mod (mod)
   (switch
-    ((key-timing 2 less-than 300)) _ break
+    ((key-timing 2 less-than $inactive-time)) _ break
     () (tap-hold $tap-time $hold-time _ $mod) break
   )
 )
 
 (defalias
   esc (tap-hold $tap-time $hold-time esc caps)
+  grv (macro (on-press press-virtualkey vmet) 1 grv)
+  tab (macro (on-press press-virtualkey vmet) 1 tab)
   caps (tap-hold $tap-time $hold-time esc lsft)
   lsft (tap-hold-press $tap-time $hold-time esc lsft)
 
@@ -71,9 +78,12 @@
 
   num (tap-hold-press $tap-time $hold-time bspc (layer-toggle num))
   nnum (tap-hold-press $tap-time $hold-time del (layer-toggle num))
-  nav (switch
-    ((key-timing 2 less-than 350)) _ break
-    () (tap-hold-release $tap-time $hold-time _ (layer-toggle nav)) break
+  nav (multi
+    (switch
+      ((key-timing 2 less-than $inactive-time)) _ break
+      () (tap-hold-release $tap-time $hold-time _ (layer-toggle nav)) break
+    )
+    (on-release release-virtualkey vmet)
   )
   ralt (tap-hold-press $tap-time $hold-time ret ralt)
   rmet (tap-hold-press $tap-time $hold-time ret rmet)
