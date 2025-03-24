@@ -28,7 +28,7 @@ name = "kanata"
 scope = "source.kanata"
 file-types = ["kbd"]
 shebangs = ["kanata"]
-comment-token = "#"
+comment-token = ";;"
 indent = { tab-width = 2, unit = "  " }
 grammar = "kanata"
 
