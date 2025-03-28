@@ -34,6 +34,8 @@ bookmark=`jj log -r 'closest_bookmark(@) & tracked_remote_bookmarks()' -T bookma
 jj git fetch
 jj rebase -d $bookmark
 """, ""]
+fetch = ["git", "fetch"]
+remote = ["git", "remote"]
 
 [revset-aliases]
 branch = "trunk()::@"
