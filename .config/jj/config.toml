@@ -42,6 +42,7 @@ br = "branch"
 
 [template-aliases]
 detailed = "builtin_log_detailed"
+ol = "builtin_log_oneline"
 zen = '''
 if(root,
 separate(" ",
