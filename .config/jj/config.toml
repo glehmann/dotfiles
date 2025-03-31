@@ -26,7 +26,7 @@ ci = ["commit"]
 clone = ["git", "clone", "--colocate"]
 init = ["git", "init", "--colocate"]
 push = ["git", "push"]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closet_pushable(@)"]
 up = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
@@ -41,6 +41,7 @@ remote = ["git", "remote"]
 branch = "trunk()::@"
 br = "branch"
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & ~description(exact:"") & (~empty() | merges()))'
 
 [template-aliases]
 detailed = "builtin_log_detailed"
