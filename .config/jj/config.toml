@@ -57,7 +57,6 @@ separate(" ",
     concat(
       separate(" ",
         format_short_change_id_with_hidden_and_divergent_info(self),
-        commit_timestamp(self).ago(),
         bookmarks,
         tags,
         working_copies,
