@@ -28,6 +28,7 @@ cursor-line = "warning"
 [editor.lsp]
 # display-inlay-hints = true
 display-messages = true
+auto-signature-help = false
 
 [editor.soft-wrap]
 enable = true
@@ -108,3 +109,6 @@ d = "delete_selection_noyank"
 c = "change_selection_noyank"
 # flip anchor and curstor
 "," = "flip_selections"
+
+[keys.insert]
+"C-t" = "signature_help"
