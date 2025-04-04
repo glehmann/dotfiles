@@ -26,7 +26,7 @@ ci = ["commit"]
 clone = ["git", "clone", "--colocate"]
 init = ["git", "init", "--colocate"]
 push = ["git", "push"]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closet_pushable(@)"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 up = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
