@@ -4,6 +4,9 @@
 name = "Gaëtan Lehmann"
 email = "gaetan.lehmann@gmail.com"
 
+[git]
+push-bookmark-prefix = "glehmann/"
+
 [ui]
 default-command = ["log", "-T", "zen"]
 
