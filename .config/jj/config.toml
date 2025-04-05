@@ -9,6 +9,7 @@ push-bookmark-prefix = "glehmann/"
 
 [ui]
 default-command = ["log", "-T", "zen"]
+conflict-marker-style = "git"
 
 [colors]
 "diff token" = { underline = false }
