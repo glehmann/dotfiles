@@ -83,3 +83,5 @@ separate(" ",
 --when.repositories = ["~/src/vates"]
 [--scope.user]
 email = "gaetan.lehmann@vates.tech"
+[--scope.templates]
+commit_trailers = "format_signed_off_by_trailer(self)"
