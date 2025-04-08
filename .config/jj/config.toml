@@ -59,6 +59,18 @@ jj log -r "trunk()..$rev" --no-graph -T description -s >> /tmp/jj-bookmark-promp
 bookmark=gln/`cat /tmp/jj-bookmark-prompt | gemini-cli prompt --model gemini-2.0-flash -`
 echo $bookmark
 """, ""]
+# create and push bookmark
+cpb = ["util", "exec", "--", "bash", "-c", """
+#!/bin/bash
+set -ex
+rev="closest_pushable(@)"
+if [ -n "$1" ]; then
+	rev=$1
+fi
+bookmark=`jj generate-bookmark-name $rev`
+jj bookmark set -r $rev $bookmark
+jj push -b $bookmark
+""", ""]
 
 [revset-aliases]
 branch = "trunk()::@"
