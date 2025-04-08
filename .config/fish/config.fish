@@ -42,6 +42,7 @@ if status is-interactive
     set -x XDG_CONFIG_HOME "$HOME/.config"
     set -x PATH $HOME/.cargo/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
+    set -x PATH $HOME/go/bin $PATH
 
     set -x N_PREFIX $HOME/n
     set -x PATH $N_PREFIX/bin $PATH
