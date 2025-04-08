@@ -66,6 +66,9 @@ X = ["extend_line_up", "extend_to_line_bounds"]
 "pagedown" = "half_page_down"
 # flip anchor and curstor
 "," = "flip_selections"
+# move line or group of lines up/down
+C-up = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+C-down = [ "extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before" ]
 
 [keys.normal.space]
 space = ":write-all"
