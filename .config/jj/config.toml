@@ -34,7 +34,7 @@ tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pus
 up = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-bookmark=`jj log -r 'tracked_remote_bookmarks()' -T bookmarks --no-graph`
+bookmark=`jj log -r 'heads(::@ & tracked_remote_bookmarks())' -T bookmarks --no-graph`
 jj git fetch
 jj rebase -d $bookmark
 """, ""]
