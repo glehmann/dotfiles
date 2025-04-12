@@ -83,7 +83,7 @@ space = ":write-all"
 "q" = ":write-quit-all"
 # "’" = ":sh zellij run --close-on-exit --floating -x 1% -y 5% --width 99% --height 96% -- bash ~/.config/helix/yazi-picker.sh"
 
-[keys.normal."("]
+[keys.normal."«"]
 space = "add_newline_above"
 D = "goto_first_diag"
 G = "goto_first_change"
@@ -97,7 +97,7 @@ p = "goto_prev_paragraph"
 t = "goto_prev_class"
 j = "jump_backward" # not in the std mapping
 
-[keys.normal.")"]
+[keys.normal."»"]
 space = "add_newline_below"
 D = "goto_last_diag"
 G = "goto_last_change"
