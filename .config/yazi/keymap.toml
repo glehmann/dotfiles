@@ -1,0 +1,29 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[manager]
+
+prepend_keymap = [
+  { on = "<Right>",    run = "plugin fuse-archive -- mount",                  desc = "Enter or Mount selected archive" },
+  { on = "<Left>",     run = "plugin fuse-archive -- unmount",                desc = "Leave or Unmount selected archive" },
+	{ on = [ "g", "e" ], run = "arrow bot",                                     desc = "Go to bottom" },
+  { on = "<S-Left>",   run = "back",                                          desc = "Back to previous directory" },
+	{ on = "<S-Right>",  run = "forward",                                       desc = "Forward to next directory" },
+	{ on = "%",          run = "toggle_all --state=on",                         desc = "Select all files" },
+	{ on = "<S-Up>",     run = "seek -5",                                       desc = "Seek up 5 units in the preview" },
+	{ on = "<S-Down>",   run = "seek 5",                                        desc = "Seek down 5 units in the preview" },
+	{ on = [ "g", "d" ], run = "cd ~/Téléchargements",                          desc = "Go ~/Downloads" },
+	{ on = [ ",", "M" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Sort by modified time" },
+	{ on = [ ",", "m" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "Sort by modified time (reverse)" },
+	{ on = [ ",", "B" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "Sort by birth time" },
+	{ on = [ ",", "b" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "Sort by birth time (reverse)" },
+	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                   desc = "Sort by extension" },
+	{ on = [ ",", "E" ], run = "sort extension --reverse",                      desc = "Sort by extension (reverse)" },
+	{ on = [ ",", "a" ], run = "sort alphabetical --reverse=no",                desc = "Sort alphabetically" },
+	{ on = [ ",", "A" ], run = "sort alphabetical --reverse",                   desc = "Sort alphabetically (reverse)" },
+	{ on = [ ",", "n" ], run = "sort natural --reverse=no",                     desc = "Sort naturally" },
+	{ on = [ ",", "N" ], run = "sort natural --reverse",                        desc = "Sort naturally (reverse)" },
+	{ on = [ ",", "S" ], run = [ "sort size --reverse=no", "linemode size" ],   desc = "Sort by size" },
+	{ on = [ ",", "s" ], run = [ "sort size --reverse", "linemode size" ],      desc = "Sort by size (reverse)" },
+]
