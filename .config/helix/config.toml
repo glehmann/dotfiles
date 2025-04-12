@@ -69,6 +69,8 @@ X = ["extend_line_up", "extend_to_line_bounds"]
 # move line or group of lines up/down
 C-up = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
 C-down = [ "extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before" ]
+# signature popup
+"C-t" = "signature_help"
 
 [keys.normal.space]
 space = ":write-all"
