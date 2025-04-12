@@ -52,17 +52,18 @@ Generate a short branch name for these commits.
 Only produce one branch name without explanation.
 Use - as separator.
 Don't include any / character in the branch name.
-Never include WIP in the branch name.
+Never include WIP or feat in the branch name.
 
 EOF
 jj log -r "trunk()..$rev" --no-graph -T description -s >> /tmp/jj-bookmark-prompt
 bookmark=gln/`cat /tmp/jj-bookmark-prompt | gemini-cli prompt --model gemini-2.0-flash -`
-echo $bookmark
+change_id=`jj log -T 'change_id.short(4)' --no-graph -r $rev`
+echo $bookmark-$change_id
 """, ""]
 # create and push bookmark
 cpb = ["util", "exec", "--", "bash", "-c", """
 #!/bin/bash
-set -ex
+set -e
 rev="closest_pushable(@)"
 if [ -n "$1" ]; then
 	rev=$1
