@@ -29,7 +29,7 @@
 (deflayer nav
   _
   @grv   _     _     _     _     _     _     _     _     _     _     _     lrld  _
-  @tab   _     _     _     _     @grv  ⇞     ⤒     ▲     ⤓     _     _     _
+  @tab   M-S-q M-S-] M-S-e M-S-r @grv  ⇞     ⤒     ▲     ⤓     _     _     _
   lsft   lsft  lalt  lmet  lctl  @tab  ⇟     ◀     ▼     ▶     _     _     _     _
   _    _ _     @cut  @cpy  @pst  @spst bspc  ◀◀    ▶⏸    ▶▶    _     _
          _     lmet  @nnum             _                 _     _     _    _ _    _
