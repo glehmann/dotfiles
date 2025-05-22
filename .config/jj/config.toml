@@ -38,6 +38,8 @@ bookmark=`jj log -r 'heads(::@ & tracked_remote_bookmarks())' -T bookmarks --no-
 jj git fetch --all-remotes
 jj rebase -d $bookmark
 """, ""]
+retrunk = ["rebase", "-d", "trunk()"]
+nt = ["new", "trunk()"]
 fetch = ["git", "fetch", "--all-remotes"]
 remote = ["git", "remote"]
 generate-bookmark-name = ["util", "exec", "--", "bash", "-c", """
