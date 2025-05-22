@@ -76,6 +76,7 @@ C-up = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_bef
 C-down = [ "extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before" ]
 # signature popup
 "C-t" = "signature_help"
+"-" = ":reflow"
 
 [keys.normal.space]
 space = ":write-all"
