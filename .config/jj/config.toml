@@ -35,10 +35,10 @@ up = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
 bookmark=`jj log -r 'heads(::@ & tracked_remote_bookmarks())' -T bookmarks --no-graph`
-jj git fetch
+jj git fetch --all-remotes
 jj rebase -d $bookmark
 """, ""]
-fetch = ["git", "fetch"]
+fetch = ["git", "fetch", "--all-remotes"]
 remote = ["git", "remote"]
 generate-bookmark-name = ["util", "exec", "--", "bash", "-c", """
 #!/bin/bash
