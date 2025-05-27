@@ -35,7 +35,7 @@ if status is-interactive
    alias code=code-insiders
    alias ts=tree-sitter
    alias less=bat
-   alias rb="~/src/vates/xcp-ng-build-env/run.py --rm"
+   alias rb="~/src/vates/xcp-ng-build-env/run.py --rm --ulimit nofile=2048"
    alias kb=~/src/vates/xcp/scripts/koji/koji_build.py
    alias ssh="env TERM=xterm-256color ssh"
 
