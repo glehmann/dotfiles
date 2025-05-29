@@ -6,10 +6,40 @@
 format = """$directory$character"""
 right_format = """$all"""
 
+[custom.jj]
+ignore_timeout = true
+description = "The current jj status"
+detect_folders = [".jj"]
+symbol = "🥋 "
+# don't use --ignore-working-copy in order to snapshot the repository at each user command
+command = 'jj log -r @ --no-graph --color always -T prompt && jj op log -T "id.short(4)" --limit 1 --no-graph --color always --ignore-working-copy'
+
+[status]
+disabled = false
+pipestatus = true
+
+[time]
+disabled = false
+style = "8"
+
+
+
+[git_branch]
+disabled = true
+
+[git_commit]
+disabled = true
+
 [git_status]
+disabled = true
 style = "cyan"
 
-# Disable the package module, hiding it from the prompt completely
+# # re-enable git_branch as long as we're not in a jj repo
+# [custom.git_branch]
+# when = true
+# command = "jj root --ignore-working-copy >/dev/null 2>&1 || starship module git_branch"
+# description = "Only show git_branch if we're not in a jj repo"
+
 [package]
 disabled = true
 
@@ -22,14 +52,6 @@ disabled = true
 [rust]
 disabled = true
 
-[status]
-disabled = false
-pipestatus = true
-
 [swift]
 disabled = true
-
-[time]
-disabled = false
-style = "8"
 

@@ -112,7 +112,21 @@ separate(" ",
   )
 )
 '''
-
+prompt = '''
+separate(" ",
+  change_id.shortest(4),
+  concat(
+    if(conflict, "💥"),
+    if(divergent, "🚧"),
+    if(hidden, "👻"),
+    if(immutable, "🔒"),
+  ),
+  if(empty, label("empty", "(e)")),
+  if(!description,
+    label(if(empty, "empty"), "(nd)"),
+  ),
+) ++ " "
+'''
 # override user.email if the repository is located under ~/src/vates
 [[--scope]]
 --when.repositories = ["~/src/vates"]
