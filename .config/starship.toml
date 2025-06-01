@@ -10,7 +10,6 @@ right_format = """$all"""
 ignore_timeout = true
 description = "The current jj status"
 detect_folders = [".jj"]
-symbol = "🥋 "
 # don't use --ignore-working-copy in order to snapshot the repository at each user command
 command = 'jj log -r @ --no-graph --color always -T prompt && jj op log -T "id.short(4)" --limit 1 --no-graph --color always --ignore-working-copy'
 
