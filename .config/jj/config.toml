@@ -34,7 +34,7 @@ tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
   jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
 else
-  jj bookmark move --to "closest_pushable(@)" "$@"
+  jj bookmark move --from "closest_bookmark($1)" --to "$1"
 fi
 """, ""]
 up = ["util", "exec", "--", "bash", "-c", """
