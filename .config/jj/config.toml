@@ -8,7 +8,7 @@ email = "gaetan.lehmann@gmail.com"
 push-bookmark-prefix = "glehmann/"
 
 [ui]
-default-command = ["log", "-T", "zen"]
+default-command = ["log", "-T", "zenst"]
 conflict-marker-style = "git"
 
 [colors]
@@ -91,6 +91,33 @@ br = "branch"
 [template-aliases]
 detailed = "builtin_log_detailed"
 ol = "builtin_log_oneline"
+zenst = '''
+if(root,
+separate(" ",
+  format_short_change_id(self.change_id()),
+    label("root", "root()"),
+    self.bookmarks(),
+  ) ++ "\n",
+  label(if(current_working_copy, "working_copy"),
+    separate(" ",
+      format_short_change_id_with_hidden_and_divergent_info(self),
+      bookmarks,
+      tags,
+      working_copies,
+      if(conflict, label("conflict", "conflict")),
+      if(config("ui.show-cryptographic-signatures").as_boolean(),
+        format_short_cryptographic_signature(signature)),
+      if(empty, label("empty", "(empty)")),
+      if(description,
+        description.first_line(),
+        label(if(empty, "empty"), description_placeholder),
+      ),
+    )
+    ++ "\n"
+    ++ if(current_working_copy || !description, diff.summary() ++ "\n")
+  )
+)
+'''
 zen = '''
 if(root,
 separate(" ",
