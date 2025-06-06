@@ -51,6 +51,9 @@ disabled = true
 [rust]
 disabled = true
 
+[golang]
+disabled = true
+
 [swift]
 disabled = true
 
