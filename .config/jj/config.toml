@@ -114,7 +114,7 @@ separate(" ",
       ),
     )
     ++ "\n"
-    ++ if(current_working_copy || !description, diff.summary() ++ "\n")
+    ++ if((current_working_copy || !description) && !empty, diff.summary() ++ "\n")
   )
 )
 '''
