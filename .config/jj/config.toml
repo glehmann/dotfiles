@@ -5,7 +5,6 @@ name = "Gaëtan Lehmann"
 email = "gaetan.lehmann@gmail.com"
 
 [git]
-push-bookmark-prefix = "glehmann/"
 
 [ui]
 default-command = ["log", "-T", "zenst"]
@@ -40,6 +39,7 @@ coalesce(
   )
 )
 '''
+git_push_bookmark = '"glehmann/" ++ change_id.short()'
 
 [signing]
 behavior = "own"
