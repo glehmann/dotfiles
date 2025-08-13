@@ -16,6 +16,9 @@ conflict-marker-style = "git"
 "diff removed token" = { bg = "#221313" }
 "diff added token" = { bg = "#222922" }
 
+[squash]
+co-authors = true
+
 [templates]
 log = "builtin_log_compact_full_description"
 # log = "builtin_log_comfortable"
