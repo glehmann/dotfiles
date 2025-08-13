@@ -55,6 +55,7 @@ fetch = ["git", "fetch", "--all-remotes"]
 remote = ["git", "remote"]
 tp = ["util", "exec", "--", "bash", "-c", "jj tug && jj push"]
 track = ["util", "exec", "--", "bash", "-c", "jj bookmark track $1@origin && jj new $1", ""]
+streamline = ["simplify-parents"]
 
 tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
