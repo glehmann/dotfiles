@@ -5,6 +5,7 @@ if status is-interactive
    alias ll='eza -lg'
    alias lla='eza -lag'
    alias grep='grep --color'
+   alias rg='rg --no-heading'
    # alias ldd='otool -L'
    # alias f="find . -name"
    alias f="fd -I"
