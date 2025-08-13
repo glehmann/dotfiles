@@ -80,7 +80,7 @@
   nnum (tap-hold-press $tap-time $hold-time del (layer-toggle num))
   nav (multi
     (switch
-      ((key-timing 2 less-than $inactive-time)) _ break
+      ((key-timing 2 less-than 200)) _ break
       () (tap-hold-release $tap-time $hold-time _ (layer-toggle nav)) break
     )
     (on-release release-virtualkey vmet)
