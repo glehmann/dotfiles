@@ -76,6 +76,13 @@ if status is-interactive
       rm -f -- "$tmp"
    end
 
+   function set_zellij_tab_title --on-event fish_postexec
+      if test -n "$ZELLIJ_SESSION_NAME"
+         zellij action rename-tab (basename $PWD)
+      end
+   end
+   set_zellij_tab_title
+
    carapace _carapace | grep -v "'jj'" | source
    starship init fish | source
    zoxide init --cmd cd fish | source
