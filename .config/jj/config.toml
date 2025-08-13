@@ -198,7 +198,7 @@ separate(" ",
 
 # override user.email if the repository is located under ~/src/vates
 [[--scope]]
---when.repositories = ["~/src/vates"]
+--when.repositories = ["~/src/vates", "~/src/xcp-ng", "~/src/xcp-ng-rpms"]
 [--scope.user]
 email = "gaetan.lehmann@vates.tech"
 [--scope.templates]
