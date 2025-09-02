@@ -9,6 +9,7 @@ email = "gaetan.lehmann@gmail.com"
 [ui]
 default-command = ["log", "-T", "zenst"]
 conflict-marker-style = "git"
+diff-editor = ":builtin"
 
 [colors]
 "diff token" = { underline = false }
