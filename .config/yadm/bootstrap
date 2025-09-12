@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -ex
+
+mkdir -p ~/.ssh/ ~/.local/bin/
+chmod 700 ~/.ssh
+echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJTlLF2DqyJ0TjmfE+Fc8fWc7m/F/43r2FFHxUCiDb4 > ~/.ssh/authorized_keys
+sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman
+sudo chsh -s /usr/bin/fish
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find
+curl -sSL https://github.com/carapace-sh/carapace-bin/releases/download/v1.5.0/carapace-bin_1.5.0_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ carapace
+curl -sSL https://github.com/jj-vcs/jj/releases/download/v0.33.0/jj-v0.33.0-x86_64-unknown-linux-musl.tar.gz | tar -xvzC ~/.local/bin/ ./jj
