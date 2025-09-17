@@ -57,8 +57,8 @@ retrunk = ["rebase", "-d", "trunk()"]
 nt = ["new", "trunk()"]
 fetch = ["git", "fetch", "--all-remotes"]
 remote = ["git", "remote"]
-tp = ["util", "exec", "--", "bash", "-c", "jj tug && jj push"]
-track = ["util", "exec", "--", "bash", "-c", "jj bookmark track $1@origin && jj new $1", ""]
+tp = ["util", "exec", "--", "bash", "-ec", "jj tug && jj push"]
+track = ["util", "exec", "--", "bash", "-ec", "jj bookmark track $1@origin && jj new $1", ""]
 streamline = ["simplify-parents"]
 clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-nx", ":/"]
 cat = ["file", "show"]
@@ -72,17 +72,13 @@ else
 fi
 """, ""]
 
-up = ["util", "exec", "--", "bash", "-c", """
-#!/usr/bin/env bash
-set -euo pipefail
+up = ["util", "exec", "--", "bash", "-ec", """
 bookmark=`jj log -r 'heads(::@ & tracked_remote_bookmarks())' -T bookmarks --no-graph`
 jj git fetch --all-remotes
 jj rebase -d $bookmark
 """, ""]
 
-generate-bookmark-name = ["util", "exec", "--", "bash", "-c", """
-#!/bin/bash
-set -e
+generate-bookmark-name = ["util", "exec", "--", "bash", "-ec", """
 rev="closest_pushable(@)"
 if [ -n "$1" ]; then
 	rev=$1
@@ -102,9 +98,7 @@ echo $bookmark-$change_id
 """, ""]
 # create and push bookmark
 
-cpb = ["util", "exec", "--", "bash", "-c", """
-#!/bin/bash
-set -e
+cpb = ["util", "exec", "--", "bash", "-ec", """
 rev="closest_pushable(@)"
 if [ -n "$1" ]; then
 	rev=$1
