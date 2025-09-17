@@ -41,6 +41,10 @@ if status is-interactive
     alias ssh="env TERM=xterm-256color ssh"
     alias activate="source .venv/bin/activate.fish"
 
+    # xcp-ng-dev tool
+    alias xd=/home/glehmann/src/xcp-ng/xcp-ng-build-env/.venv/bin/xcp-ng-dev
+    register-python-argcomplete --shell fish /home/glehmann/src/xcp-ng/xcp-ng-build-env/.venv/bin/xcp-ng-dev | source
+
     set -x XDG_CONFIG_HOME "$HOME/.config"
     set -x PATH $HOME/.cargo/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
