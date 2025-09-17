@@ -63,6 +63,7 @@ streamline = ["simplify-parents"]
 clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-nx", ":/"]
 cat = ["file", "show"]
 drop = ["abandon"]
+touch = ["metaedit", "--update-committer-timestamp"]
 
 tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
