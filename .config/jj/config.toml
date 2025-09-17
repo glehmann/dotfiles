@@ -108,6 +108,18 @@ jj bookmark set -r $rev $bookmark
 jj push -b $bookmark --allow-new
 """, ""]
 
+# set the description of a revision as fixing another revision
+fixup = ["util", "exec", "--", "bash", "-ec", """
+to_fix=$1
+rev=@
+if [ -n "$2" ]; then
+	rev=$2
+fi
+description=`jj log --no-graph -T 'description.first_line()' -r $to_fix`
+change_id=`jj log --no-graph -T 'change_id' -r $to_fix`
+jj desc -m "fixup! $description\n\nSquash-into: $change_id" -r "$rev"
+""", ""]
+
 [revset-aliases]
 branch = "trunk()..@"
 br = "branch"
