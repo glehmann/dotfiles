@@ -15,6 +15,7 @@ diff-editor = ":builtin"
 "diff token" = { underline = false }
 "diff removed token" = { bg = "#221313" }
 "diff added token" = { bg = "#222922" }
+"local change_id" = { fg = "yellow" }
 
 [squash]
 co-authors = true
@@ -137,7 +138,11 @@ separate(" ",
     label("root", "root()"),
     self.bookmarks(),
   ) ++ "\n",
-  label(if(current_working_copy, "working_copy"),
+  label(
+    coalesce(
+      if(self.contained_in("remote_bookmarks().. ~ empty()"), "local"),
+      if(current_working_copy, "working_copy"),
+    ),
     separate(" ",
       coalesce(
         if(self.hidden(), label("hidden", format_short_commit_id(self.commit_id()) ++ " (hidden)")),
