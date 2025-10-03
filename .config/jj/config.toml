@@ -127,6 +127,10 @@ branch = "trunk()..@"
 br = "branch"
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & ~description(exact:"") & (~empty() | merges()))'
+'stack' = 'stack()'
+'stack()' = 'stack(@)'
+'stack(x)' = 'stack(x, 2)'
+'stack(x, n)' = 'ancestors(reachable(x, mutable()), n)'
 
 [template-aliases]
 detailed = "builtin_log_detailed"
