@@ -163,7 +163,9 @@ separate(" ",
       ),
     )
     ++ "\n"
-    ++ if((current_working_copy || !description) && !empty, diff.summary() ++ "\n")
+    ++ if((current_working_copy || !description) && !empty,
+          label("conflict", self.files().filter(|f| f.file_type() == "conflict").map(|f| "C " ++ f.path() ++ "\n").join(""))
+          ++ diff.summary() ++ "\n"),
   )
 )
 '''
