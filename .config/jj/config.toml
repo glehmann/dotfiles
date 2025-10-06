@@ -65,6 +65,7 @@ clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-nx", ":/"]
 cat = ["file", "show"]
 drop = ["abandon"]
 touch = ["metaedit", "--update-committer-timestamp"]
+watch = ["util", "exec", "--", "watchexec", "-r", "-w", ".jj/repo/op_heads/heads", "--ignore-nothing", "--wrap-process", "none", "--quiet", "--", "bash", "-ec", "clear && jj --ignore-working-copy"]
 
 tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
