@@ -1,18 +1,28 @@
-#!/bin/bash
+#!/bin/sh
 
 set -ex
 
+source /etc/os-release
 cd /tmp
 
 mkdir -p ~/.ssh/ ~/.local/bin/ ~/src/xcp-ng ~/src/xcp-ng-rpms
 chmod 700 ~/.ssh
 echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJTlLF2DqyJ0TjmfE+Fc8fWc7m/F/43r2FFHxUCiDb4 > ~/.ssh/authorized_keys
-sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman
+if [ "$ID" = "alpine" ]; then
+  sudo apk add gcc mold helix git fish kitty-kitten xclip podman htop helix-tree-sitter-system curl shadow bash
+elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
+  sudo apt update
+  sudo apt install -y gcc mold git fish kitty xclip podman htop curl wget
+  wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb
+  sudo dpkg -i helix_*_amd64.deb
+else
+  sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman htop
+fi
 sudo chsh -s /usr/bin/fish
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find mise zizmor jj-cli # yazi-build
+curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | sh
+cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find mise zizmor jj-cli watchexec-cli zellij # yazi-build
 curl -sSL https://github.com/carapace-sh/carapace-bin/releases/download/v1.5.0/carapace-bin_1.5.0_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ carapace
 curl -LsSf https://astral.sh/uv/install.sh | sh
-wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-gnu.zip && unzip yazi-x86_64-unknown-linux-gnu.zip 'yazi-x86_64-unknown-linux-gnu/yazi' && mkdir -p ~/.local/bin && mv yazi-x86_64-unknown-linux-gnu/yazi ~/.local/bin/ && rm yazi-x86_64-unknown-linux-gnu.zip && rmdir yazi-x86_64-unknown-linux-gnu
+wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-musl.zip && unzip yazi-x86_64-unknown-linux-musl.zip 'yazi-x86_64-unknown-linux-musl/yazi' && mkdir -p ~/.local/bin && mv yazi-x86_64-unknown-linux-musl/yazi ~/.local/bin/ && rm yazi-x86_64-unknown-linux-musl.zip && rmdir yazi-x86_64-unknown-linux-musl
 yadm decrypt
