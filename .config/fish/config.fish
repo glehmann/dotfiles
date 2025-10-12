@@ -56,6 +56,7 @@ if status is-interactive
     set -x PATH $N_PREFIX/bin $PATH
 
     set -x EDITOR hx
+    set -x PAGER /usr/bin/less
     set -x LESS ' -RMX '
     set -x BAT_STYLE plain
     set -x BAT_THEME tokyonight_night
