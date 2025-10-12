@@ -2,6 +2,9 @@
 
 set -ex
 
+yadm decrypt
+source ~/.secrets.sh
+
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 source /etc/os-release
 cd /tmp
@@ -28,4 +31,3 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv tool install zizmor
 curl https://mise.run | sh
 wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-musl.zip && unzip yazi-x86_64-unknown-linux-musl.zip 'yazi-x86_64-unknown-linux-musl/yazi' && mkdir -p ~/.local/bin && mv yazi-x86_64-unknown-linux-musl/yazi ~/.local/bin/ && rm yazi-x86_64-unknown-linux-musl.zip && rmdir yazi-x86_64-unknown-linux-musl
-yadm decrypt
