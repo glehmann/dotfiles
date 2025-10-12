@@ -11,6 +11,10 @@ chmod 700 ~/.ssh
 echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJTlLF2DqyJ0TjmfE+Fc8fWc7m/F/43r2FFHxUCiDb4 > ~/.ssh/authorized_keys
 if [ "$ID" = "alpine" ]; then
   sudo apk add gcc mold helix git fish kitty-kitten xclip podman htop helix-tree-sitter-system curl shadow bash
+  sudo rc-update add cgroups default
+  sudo rc-service cgroups start
+  echo glehmann:100000:65536 | sudo tee -a /etc/subuid | sudo tee -a /etc/subgid
+  sudo sed -i -E 's@(\\s+/\\s+ext4\\s+rw,relatime)@\\1,shared@g' /etc/fstab
 elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
   sudo apt update
   sudo apt install -y gcc mold git fish kitty xclip podman htop curl wget
