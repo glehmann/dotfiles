@@ -15,6 +15,7 @@ if [ "$ID" = "alpine" ]; then
   sudo rc-service cgroups start
   echo glehmann:100000:65536 | sudo tee -a /etc/subuid | sudo tee -a /etc/subgid
   sudo sed -i -E 's@(\\s+/\\s+ext4\\s+rw,relatime)@\\1,shared@g' /etc/fstab
+  sudo mount -a -o remount
 elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
   sudo apt update
   sudo apt install -y gcc mold git fish kitty xclip podman htop curl wget
