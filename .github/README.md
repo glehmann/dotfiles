@@ -14,6 +14,8 @@ yadm clone https://github.com/glehmann/dotfiles.git
 
 ### Alpine
 
+The user should be already created and have `sudo` access (`adduser x && adduser x wheel`).
+
 ~~~bash
 sudo apk add yadm
 yadm clone https://github.com/glehmann/dotfiles.git
