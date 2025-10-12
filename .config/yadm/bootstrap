@@ -2,9 +2,6 @@
 
 set -ex
 
-yadm decrypt
-source ~/.secrets.sh
-
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 source /etc/os-release
 cd /tmp
@@ -22,6 +19,10 @@ elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
 else
   sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman htop
 fi
+
+yadm decrypt
+source ~/.secrets.sh
+
 sudo chsh -s /usr/bin/fish $USER
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | sh
