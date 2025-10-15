@@ -3,7 +3,7 @@
 set -ex
 
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$PATH
-source /etc/os-release
+. /etc/os-release
 cd /tmp
 
 mkdir -p ~/.ssh/ ~/.local/bin/ ~/src/xcp-ng ~/src/xcp-ng-rpms
@@ -21,19 +21,25 @@ elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
   sudo apt install -y gcc mold git fish kitty xclip podman htop curl wget
   wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb
   sudo dpkg -i helix_*_amd64.deb
+elif [ "$ID" = "freebsd"]; then
+  doas pkg install helix git fish xclip podman htop zoxide vivid starship bat eza ripgrep fd-find zellij carapace uv mise jujutsu
+  # missing: watchexec yazi
+  sudo chsh -s /usr/local/bin/fish $USER
 else
   sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman htop
 fi
 
 yadm decrypt
-source ~/.secrets.sh
-
-sudo chsh -s /usr/bin/fish $USER
+. ~/.secrets.sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | sh
-cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find jj-cli watchexec-cli zellij # yazi-build
-curl -sSL https://github.com/carapace-sh/carapace-bin/releases/download/v1.5.0/carapace-bin_1.5.0_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ carapace
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv tool install zizmor
-curl https://mise.run | sh
-wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-musl.zip && unzip yazi-x86_64-unknown-linux-musl.zip 'yazi-x86_64-unknown-linux-musl/yazi' && mkdir -p ~/.local/bin && mv yazi-x86_64-unknown-linux-musl/yazi ~/.local/bin/ && rm yazi-x86_64-unknown-linux-musl.zip && rmdir yazi-x86_64-unknown-linux-musl
+
+if [ `uname -o` == "GNU/Linux" ]; then
+  sudo chsh -s /usr/bin/fish $USER
+  curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | sh
+  cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find jj-cli watchexec-cli zellij # yazi-build
+  curl -sSL https://github.com/carapace-sh/carapace-bin/releases/download/v1.5.0/carapace-bin_1.5.0_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ carapace
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  uv tool install zizmor
+  curl https://mise.run | sh
+  wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-musl.zip && unzip -j -d ~/.local/bin/ yazi-x86_64-unknown-linux-musl.zip '*/yazi' && rm yazi-x86_64-unknown-linux-musl.zip
+fi
