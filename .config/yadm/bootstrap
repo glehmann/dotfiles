@@ -23,7 +23,7 @@ elif [ "$ID" = "debian"] || [ "$ID" = "ubuntu" ]; then
   sudo dpkg -i helix_*_amd64.deb
 elif [ "$ID" = "freebsd"]; then
   doas pkg install helix git fish xclip podman htop zoxide vivid starship bat eza ripgrep fd-find zellij carapace uv mise jujutsu
-  # missing: watchexec yazi
+  # missing: watchexec yazi zizmor
   sudo chsh -s /usr/local/bin/fish $USER
 else
   sudo dnf install -y @development-tools mold helix git fish kitty-kitten xclip podman htop
@@ -33,7 +33,7 @@ yadm decrypt
 . ~/.secrets.sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-if [ `uname -o` == "GNU/Linux" ]; then
+if [ `uname -o` == "GNU/Linux" ] || [ `uname -o` == "Linux" ]; then
   sudo chsh -s /usr/bin/fish $USER
   curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | sh
   cargo binstall -y zoxide vivid starship bat eza ripgrep fd-find jj-cli watchexec-cli zellij # yazi-build
