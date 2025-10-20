@@ -56,7 +56,10 @@ if status is-interactive
     set -x PATH $N_PREFIX/bin $PATH
 
     set -x EDITOR hx
-    set -x PAGER /usr/bin/less
+    if [ (uname -o) = Linux ]
+        # Only on alpine. With it, it doesn't exits if the content is smaller than the terminal
+        set -x PAGER /usr/bin/less
+    end
     set -x LESS ' -RMX '
     set -x BAT_STYLE plain
     set -x BAT_THEME tokyonight_night
