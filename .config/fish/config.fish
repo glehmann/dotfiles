@@ -10,7 +10,7 @@ if status is-interactive
     # alias f="find . -name"
     alias f="fd -I"
     alias callgrind="valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes " #--dsymutil=yes
-    if which podman >/dev/null
+    if which podman &>/dev/null
         alias dk=podman
         alias dkc=podman compose
     else
@@ -18,13 +18,13 @@ if status is-interactive
         alias dkc=docker compose
     end
     # # alias time="time -p"
-    if which xdg-open >/dev/null
+    if which xdg-open &>/dev/null
         alias open='xdg-open'
     end
-    if which kitten >/dev/null
+    if which kitten &>/dev/null
         alias pbcopy='kitten clipboard'
         alias pbpaste='kitten clipboard --get-clipboard'
-    else if which xclip >/dev/null
+    else if which xclip &>/dev/null
         alias pbcopy='xclip -selection clipboard'
         alias pbpaste='xclip -selection clipboard -o'
     end
