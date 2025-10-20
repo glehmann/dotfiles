@@ -83,6 +83,10 @@ if status is-interactive
         source $HOME/.secrets.sh
     end
 
+    function unset
+        set -u $argv
+    end
+
     function y
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         yazi $argv --cwd-file="$tmp"
