@@ -47,22 +47,22 @@ if status is-interactive
         register-python-argcomplete --shell fish /home/glehmann/src/xcp-ng/xcp-ng-build-env/.venv/bin/xcp-ng-dev | source
     end
 
-    set -x XDG_CONFIG_HOME "$HOME/.config"
-    set -x PATH $HOME/.cargo/bin $PATH
-    set -x PATH $HOME/.local/bin $PATH
-    set -x PATH $HOME/go/bin $PATH
+    export XDG_CONFIG_HOME="$HOME/.config"
+    export PATH="$HOME/.cargo/bin $PATH"
+    export PATH="$HOME/.local/bin $PATH"
+    export PATH="$HOME/go/bin $PATH"
 
-    set -x N_PREFIX $HOME/n
-    set -x PATH $N_PREFIX/bin $PATH
+    export N_PREFIX=$HOME/n
+    export PATH="$N_PREFIX/bin $PATH"
 
-    set -x EDITOR hx
+    export EDITOR=hx
     if [ (uname -o) = Linux ]
         # Only on alpine. With it, it doesn't exits if the content is smaller than the terminal
-        set -x PAGER /usr/bin/less
+        export PAGER=/usr/bin/less
     end
-    set -x LESS ' -RMX '
-    set -x BAT_STYLE plain
-    set -x BAT_THEME tokyonight_night
+    export LESS=' -RMX '
+    export BAT_STYLE=plain
+    export BAT_THEME=tokyonight_night
 
     # more compact nextest output
     export NEXTEST_STATUS_LEVEL=fail
@@ -70,13 +70,13 @@ if status is-interactive
     export NEXTEST_FINAL_STATUS_LEVEL=none
 
     # to force output colors in tree
-    set -x EZA_COLORS "ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
-    set -x LS_COLORS "$(vivid generate tokyonight-moon)"
+    export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
+    export LS_COLORS="$(vivid generate tokyonight-moon)"
 
     # configuration for helix from src dir
     if test -d $HOME/src/helix
-        set -x HELIX_RUNTIME $HOME/src/helix/runtime
-        set -x PATH $HOME/src/helix/target/release $PATH
+        export HELIX_RUNTIME=$HOME/src/helix/runtime
+        export PATH="$HOME/src/helix/target/release $PATH"
     end
 
     if test -f $HOME/.secrets.sh
