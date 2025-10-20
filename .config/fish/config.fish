@@ -61,6 +61,11 @@ if status is-interactive
     set -x BAT_STYLE plain
     set -x BAT_THEME tokyonight_night
 
+    # more compact nextest output
+    export NEXTEST_STATUS_LEVEL=fail
+    export NEXTEST_SHOW_PROGRESS=running
+    export NEXTEST_FINAL_STATUS_LEVEL=none
+
     # to force output colors in tree
     set -x EZA_COLORS "ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
     set -x LS_COLORS "$(vivid generate tokyonight-moon)"
