@@ -11,6 +11,7 @@ rulers = [120]
 jump-label-alphabet = "auietsrnx.'qpdél"
 end-of-line-diagnostics = "hint"
 true-color = true
+default-yank-register = "+"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -72,11 +73,14 @@ A-c = "copy_selection_on_prev_line"
 # remove selections matching a regex
 A-k = "remove_selections"
 # move line or group of lines up/down
-C-up = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+# C-up = '@<A-x>"aydk"aP'
+# C-down = '@<A-x>"aydj"aP'
+C-up = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 C-down = [ "extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before" ]
 # signature popup
 "C-t" = "signature_help"
 "-" = ":reflow"
+# y = ["yank", "yank_to_clipboard"]
 
 [keys.normal.space]
 space = ":write-all"
