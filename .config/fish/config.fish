@@ -62,9 +62,7 @@ if status is-interactive
     export BAT_THEME=tokyonight_night
 
     # more compact nextest output
-    export NEXTEST_STATUS_LEVEL=fail
-    export NEXTEST_SHOW_PROGRESS=running
-    export NEXTEST_FINAL_STATUS_LEVEL=none
+    export NEXTEST_SHOW_PROGRESS=only
 
     # to force output colors in tree
     export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
