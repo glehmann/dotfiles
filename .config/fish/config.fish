@@ -56,11 +56,8 @@ if status is-interactive
     export PATH="$N_PREFIX/bin:$PATH"
 
     export EDITOR=hx
-    if [ (uname -o) = Linux ]
-        # Only on alpine. With it, it doesn't exits if the content is smaller than the terminal
-        export PAGER=/usr/bin/less
-    end
-    export LESS=' -RMX '
+    export PAGER=/usr/bin/less
+    export LESS=' -FRXM '
     export BAT_STYLE=plain
     export BAT_THEME=tokyonight_night
 
