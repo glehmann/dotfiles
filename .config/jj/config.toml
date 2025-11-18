@@ -67,6 +67,7 @@ drop = ["abandon"]
 touch = ["metaedit", "--update-committer-timestamp"]
 watch = ["util", "exec", "--", "bash", "-ec",
   "watchexec --quiet --clear --restart --watch=$JJ_WORKSPACE_ROOT/.jj/repo/op_heads/heads --ignore-nothing --wrap-process none -- jj --ignore-working-copy"]
+sudo = ["--ignore-immutable"]
 
 tug = ["util", "exec", "--", "sh", "-c", """
 if [ "x$1" = "x" ]; then
