@@ -242,3 +242,5 @@ separate(" ",
 email = "gaetan.lehmann@vates.tech"
 [--scope.templates]
 commit_trailers = "format_signed_off_by_trailer(self)"
+[--scope.git]
+write-change-id-header = false
