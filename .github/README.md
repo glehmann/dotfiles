@@ -28,3 +28,10 @@ sudo apt update
 sudo apt install -y yadm
 yadm clone https://github.com/glehmann/dotfiles.git
 ~~~
+
+### FreeBSD
+
+~~~bash
+doas pkg install yadm
+yadm clone https://github.com/glehmann/dotfiles.git
+~~~
