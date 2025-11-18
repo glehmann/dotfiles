@@ -48,12 +48,12 @@ if status is-interactive
     end
 
     export XDG_CONFIG_HOME="$HOME/.config"
-    export PATH="$HOME/.cargo/bin $PATH"
-    export PATH="$HOME/.local/bin $PATH"
-    export PATH="$HOME/go/bin $PATH"
+    export PATH="$HOME/.cargo/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/go/bin:$PATH"
 
     export N_PREFIX=$HOME/n
-    export PATH="$N_PREFIX/bin $PATH"
+    export PATH="$N_PREFIX/bin:$PATH"
 
     export EDITOR=hx
     if [ (uname -o) = Linux ]
@@ -76,7 +76,7 @@ if status is-interactive
     # configuration for helix from src dir
     if test -d $HOME/src/helix
         export HELIX_RUNTIME=$HOME/src/helix/runtime
-        export PATH="$HOME/src/helix/target/release $PATH"
+        export PATH="$HOME/src/helix/target/release:$PATH"
     end
 
     if test -f $HOME/.secrets.sh
