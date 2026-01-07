@@ -46,7 +46,7 @@ git_push_bookmark = '"glehmann/" ++ change_id.short()'
 [signing]
 behavior = "own"
 backend = "ssh"
-key = "~/.ssh/id_ed25519.pub"
+key = "~/.config/git/sign.pub"
 
 [aliases]
 annotate = ["file", "annotate"]

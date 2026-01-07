@@ -14,7 +14,7 @@
 [user]
 	name = Gaëtan Lehmann
 	email = gaetan.lehmann@gmail.com
-	signingkey = ~/.ssh/id_ed25519.pub
+	signingkey = ~/.config/git/sign.pub
 [core]
 	precomposeunicode = true
 	quotepath = false
