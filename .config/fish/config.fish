@@ -41,6 +41,11 @@ if status is-interactive
     alias ssh="env TERM=xterm-256color ssh"
     alias activate="source .venv/bin/activate.fish"
 
+    # bitwarden ssh agent configuration
+    if test -e $HOME/.var/app/com.bitwarden.desktop
+        export SSH_AUTH_SOCK=$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+    end
+
     # xcp-ng-dev tool
     if [ -e /home/glehmann/src/xcp-ng/xcp-ng-build-env/.venv ]
         alias xd=/home/glehmann/src/xcp-ng/xcp-ng-build-env/.venv/bin/xcp-ng-dev
