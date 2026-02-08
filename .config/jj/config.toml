@@ -99,7 +99,7 @@ Never include WIP or feat in the branch name.
 
 EOF
 jj log -r "closest_bookmark($rev-)..$rev" --no-graph -T description -s >> /tmp/jj-bookmark-prompt
-bookmark=gln/`cat /tmp/jj-bookmark-prompt | gemini-cli prompt --model gemini-2.0-flash -`
+bookmark=gln/`cat /tmp/jj-bookmark-prompt | gemini-cli prompt --model gemini-2.5-flash-lite -`
 change_id=`jj log -T 'change_id.short(4)' --no-graph -r $rev`
 echo $bookmark-$change_id
 """, ""]
