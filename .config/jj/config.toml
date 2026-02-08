@@ -16,6 +16,7 @@ diff-editor = ":builtin"
 "diff removed token" = { bg = "#221313" }
 "diff added token" = { bg = "#222922" }
 "local change_id" = { fg = "yellow" }
+"offset" = { fg = "magenta" }
 
 [squash]
 co-authors = true
@@ -139,6 +140,15 @@ br = "branch"
 [template-aliases]
 detailed = "builtin_log_detailed"
 ol = "builtin_log_oneline"
+'format_short_change_id_with_hidden_and_divergent_info(commit)' = '''
+if(commit.hidden(),
+  label("hidden", format_short_change_id(commit.change_id()) ++ format_change_offset(commit) ++ " (hidden)"),
+  if(commit.divergent(),
+    label("divergent", commit.change_id().shortest(8 - stringify(format_change_offset(commit)).len()) ++ format_change_offset(commit)),
+    format_short_change_id(commit.change_id())
+  )
+)
+'''
 zenst = '''
 if(root,
 separate(" ",
@@ -155,8 +165,7 @@ separate(" ",
       coalesce(
         if(self.hidden(), label("hidden", format_short_commit_id(self.commit_id()) ++ " (hidden)")),
         if(self.immutable(), format_short_commit_id(self.commit_id())),
-        if(self.divergent(), label("divergent", self.change_id().shortest(8)) ++ "/" ++ self.commit_id().shortest()),
-        format_short_change_id(self.change_id()),
+        format_short_change_id_with_hidden_and_divergent_info(self),
       ),
       bookmarks,
       tags,
@@ -171,9 +180,10 @@ separate(" ",
       ),
     )
     ++ "\n"
-    ++ if((current_working_copy || !description) && !empty,
+    ++ if((current_working_copy || !description),
           label("conflict", self.files().filter(|f| f.file_type() == "conflict").map(|f| "C " ++ f.path() ++ "\n").join(""))
-          ++ diff.summary() ++ "\n"),
+          ++ diff.summary() ++ "\n"
+        ),
   )
 )
 '''
@@ -189,8 +199,7 @@ separate(" ",
       coalesce(
         if(self.hidden(), label("hidden", format_short_commit_id(self.commit_id()) ++ " (hidden)")),
         if(self.immutable(), format_short_commit_id(self.commit_id())),
-        if(self.divergent(), label("divergent", self.change_id().shortest(8)) ++ "/" ++ self.commit_id().shortest()),
-        format_short_change_id(self.change_id()),
+        format_short_change_id_with_hidden_and_divergent_info(self),
       ),
       bookmarks,
       tags,
