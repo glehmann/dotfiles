@@ -82,6 +82,10 @@ if status is-interactive
         export PATH="$HOME/src/helix/target/release:$PATH"
     end
 
+    if test -r ~/.opam/opam-init/init.fish
+        source ~/.opam/opam-init/init.fish
+    end
+
     if test -f $HOME/.secrets.sh
         source $HOME/.secrets.sh
     end
