@@ -78,3 +78,7 @@
 	gpgsign = true
 [includeIf "gitdir:~/src/vates/**"]
     path = ~/src/vates/.gitconfig
+[includeIf "gitdir:~/src/xcp-ng/**"]
+    path = ~/src/vates/.gitconfig
+[includeIf "gitdir:~/src/xcp-ng-rpms/**"]
+    path = ~/src/vates/.gitconfig
