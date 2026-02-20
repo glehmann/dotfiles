@@ -73,6 +73,9 @@ if status is-interactive
     export EZA_COLORS="ur=0:uw=0:ux=0:ue=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:uu=0:gu=0:da=90"
     export LS_COLORS="$(vivid generate tokyonight-moon)"
 
+    # hide pyright warning about a newer version
+    export PYRIGHT_PYTHON_IGNORE_WARNINGS=true
+
     # configuration for helix from src dir
     if test -d $HOME/src/helix
         export HELIX_RUNTIME=$HOME/src/helix/runtime
