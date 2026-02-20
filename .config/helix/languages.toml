@@ -3,6 +3,7 @@ name = "python"
 language-servers = [
   "basedpyright",
   "ruff",
+  "pytest-language-server",
 ]
 auto-format = true
 
