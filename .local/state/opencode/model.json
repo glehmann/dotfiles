@@ -1,0 +1,59 @@
+{
+  "recent": [
+    {
+      "providerID": "opencode",
+      "modelID": "minimax-m2.5-free"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "claude-haiku-4.5"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "claude-sonnet-4.6"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "claude-opus-4.6"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "gpt-5-mini"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "gpt-5.2-codex"
+    }
+  ],
+  "favorite": [
+    {
+      "providerID": "github-copilot",
+      "modelID": "gpt-5-mini"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "grok-code-fast-1"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "gpt-5.1-codex-mini"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "gemini-3-flash-preview"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "claude-haiku-4.5"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "gemini-3-pro-preview"
+    },
+    {
+      "providerID": "github-copilot",
+      "modelID": "claude-sonnet-4.6"
+    }
+  ],
+  "variant": {}
+}
