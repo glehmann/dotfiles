@@ -126,6 +126,7 @@ description=`jj log --no-graph -T 'description.first_line()' -r $to_fix`
 change_id=`jj log --no-graph -T 'change_id' -r $to_fix`
 jj desc -m "fixup! $description\n\nSquash-into: $change_id" -r "$rev"
 """, ""]
+pr = ["util", "exec", "--", "jj-vine"]
 
 [revset-aliases]
 branch = "trunk()..@"
@@ -253,3 +254,6 @@ email = "gaetan.lehmann@vates.tech"
 commit_trailers = "format_signed_off_by_trailer(self)"
 [--scope.git]
 write-change-id-header = false
+
+[jj-vine.title]
+syncMultipleRevisions = false
