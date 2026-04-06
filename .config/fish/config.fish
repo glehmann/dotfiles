@@ -40,6 +40,7 @@ if status is-interactive
     alias kb=~/src/xcp-ng/xcp/scripts/koji/koji_build.py
     alias ssh="env TERM=xterm-256color ssh"
     alias activate="source .venv/bin/activate.fish"
+    alias oc=opencode
 
     # bitwarden ssh agent configuration
     if test -e $HOME/.var/app/com.bitwarden.desktop
@@ -56,6 +57,7 @@ if status is-interactive
     export PATH="$HOME/.cargo/bin:$PATH"
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="$HOME/go/bin:$PATH"
+    fish_add_path $HOME/.opencode/bin
 
     export N_PREFIX=$HOME/n
     export PATH="$N_PREFIX/bin:$PATH"
@@ -75,6 +77,9 @@ if status is-interactive
 
     # hide pyright warning about a newer version
     export PYRIGHT_PYTHON_IGNORE_WARNINGS=true
+
+    # allow opencode to use lsp feature
+    export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 
     # configuration for helix from src dir
     if test -d $HOME/src/helix
