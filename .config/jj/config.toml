@@ -50,6 +50,8 @@ backend = "ssh"
 key = "~/.config/git/sign.pub"
 
 [aliases]
+l = ["log", "-Tzenst", "-r", "::@"]
+ll = ["log", "-Tdetailed", "-r", "::@"]
 annotate = ["file", "annotate"]
 ci = ["commit"]
 clone = ["git", "clone", "--colocate"]
