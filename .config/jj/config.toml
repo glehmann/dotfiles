@@ -5,6 +5,7 @@ name = "Gaëtan Lehmann"
 email = "gaetan.lehmann@gmail.com"
 
 [git]
+sign-on-push = true
 
 [ui]
 default-command = ["log", "-T", "zenst"]
@@ -45,7 +46,7 @@ coalesce(
 git_push_bookmark = '"glehmann/" ++ change_id.short()'
 
 [signing]
-behavior = "own"
+behavior = "drop"
 backend = "ssh"
 key = "~/.config/git/sign.pub"
 
